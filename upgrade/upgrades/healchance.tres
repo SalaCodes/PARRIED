@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://dlaivi1x1jqx4"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_wmqc1"]
+
+[resource]
+script = ExtResource("1_wmqc1")
+title = "HEAL FOR LIFE"
+description = "Spawn more healing bullets (+2%). Maxes at 20% heal."

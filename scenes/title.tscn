@@ -1,0 +1,468 @@
+[gd_scene load_steps=28 format=3 uid="uid://m65onixhj0oc"]
+
+[ext_resource type="Script" uid="uid://clnsmm7ldp5vp" path="res://title.gd" id="1_b3w7a"]
+[ext_resource type="Texture2D" uid="uid://dcly61e5wnfed" path="res://assets/menu.png" id="2_4rr2b"]
+[ext_resource type="Texture2D" uid="uid://b8v8v2y574w3i" path="res://assets/background-dealer.png" id="2_hiwto"]
+[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="4_ia1n6"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="5_yql1r"]
+[ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="6_4rr2b"]
+[ext_resource type="Texture2D" uid="uid://by457t2mpbl3g" path="res://SPLASH/logo.png" id="6_yql1r"]
+[ext_resource type="Texture2D" uid="uid://cghhrcqpmesag" path="res://assets/sign.png" id="8_hiwto"]
+[ext_resource type="Texture2D" uid="uid://bis2y5w4blnfb" path="res://assets/shield(parry).png" id="8_ia1n6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7k74"]
+atlas = ExtResource("2_4rr2b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyqm6"]
+atlas = ExtResource("2_4rr2b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpexm"]
+atlas = ExtResource("2_4rr2b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xoar"]
+atlas = ExtResource("2_4rr2b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mom7w"]
+atlas = ExtResource("2_4rr2b")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7lgly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7k74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyqm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpexm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xoar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mom7w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hiwto"]
+
+[sub_resource type="Animation" id="Animation_k0juu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CREDITS:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(502, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_4wyf3"]
+resource_name = "creds"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CREDITS:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(502, 11), Vector2(-4200, 11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_71j4m"]
+_data = {
+&"RESET": SubResource("Animation_k0juu"),
+&"creds": SubResource("Animation_4wyf3")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ia1n6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yql1r"]
+
+[sub_resource type="Animation" id="Animation_ia1n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character-button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15, 520)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character-button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_yql1r"]
+resource_name = "gotocharacter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("character-button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 520), Vector2(200, -200), Vector2(-2000, -180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("character-button:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(2.63902, 0.392292),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(15, 15)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_characters"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ia1n6"]
+_data = {
+&"RESET": SubResource("Animation_ia1n6"),
+&"gotocharacter": SubResource("Animation_yql1r")
+}
+
+[sub_resource type="Animation" id="Animation_w65of"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-143, 327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shield:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.235294)]
+}
+
+[sub_resource type="Animation" id="Animation_hiwto"]
+resource_name = "quit"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shield:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-143, 327), Vector2(560, 327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shield:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shield:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.16667, 1.1871, 2.16736),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.235294), Color(1, 1, 1, 0.235294), Color(1, 1, 1, 1), Color(1, 1, 1, 0.235294)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.46736),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"quit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w65of"]
+_data = {
+&"RESET": SubResource("Animation_w65of"),
+&"quit": SubResource("Animation_hiwto")
+}
+
+[node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b3w7a")
+metadata/_edit_horizontal_guides_ = [409.0]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="bg" type="ColorRect" parent="background"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.384314, 0, 0, 1)
+
+[node name="Background-dealer" type="Sprite2D" parent="background"]
+position = Vector2(578, 539)
+scale = Vector2(5.821, 2.092)
+texture = ExtResource("2_hiwto")
+
+[node name="Background-dealer2" type="Sprite2D" parent="background"]
+position = Vector2(578, 291)
+rotation = -3.14159
+scale = Vector2(5.82059, 1.79688)
+texture = ExtResource("2_hiwto")
+
+[node name="Background-dealer3" type="Sprite2D" parent="background"]
+position = Vector2(578, 43)
+scale = Vector2(5.821, 2.092)
+texture = ExtResource("2_hiwto")
+
+[node name="figure" type="AnimatedSprite2D" parent="."]
+position = Vector2(562, 328)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_7lgly")
+autoplay = "default"
+frame_progress = 0.844928
+
+[node name="endless" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 356.0
+offset_right = 596.0
+offset_bottom = 396.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
+text = "ENDLESS"
+icon = ExtResource("4_ia1n6")
+flat = true
+icon_alignment = 1
+
+[node name="bosses" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.418
+offset_top = 280.0
+offset_right = 596.418
+offset_bottom = 320.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
+text = "STORY"
+icon = ExtResource("4_ia1n6")
+flat = true
+icon_alignment = 1
+
+[node name="demain" type="Button" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 456.0
+offset_right = 596.0
+offset_bottom = 496.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
+text = "THRONE"
+icon = ExtResource("4_ia1n6")
+flat = true
+icon_alignment = 1
+
+[node name="go_to_book" type="Button" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 553.0
+offset_right = 602.0
+offset_bottom = 593.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
+text = "BOOK"
+icon = ExtResource("4_ia1n6")
+flat = true
+icon_alignment = 1
+
+[node name="info" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 394.0
+offset_right = 146.0
+offset_bottom = 434.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("5_yql1r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
+text = "INFO"
+icon = ExtResource("4_ia1n6")
+flat = true
+icon_alignment = 1
+
+[node name="CREDITS" type="Label" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 11.0
+offset_right = 1938.0
+offset_bottom = 39.0
+scale = Vector2(5, 5)
+theme = ExtResource("6_4rr2b")
+text = "Sebastian -vey- Fennec - ROBLOX Grace Original Soundtrack (from The Garden) - 01 -BONUS- ...Let us Pray."
+
+[node name="credits" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_71j4m")
+}
+autoplay = "creds"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(564, 225)
+scale = Vector2(2, 2)
+texture = ExtResource("6_yql1r")
+
+[node name="creditShowing" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 596.0
+offset_right = 1025.0
+offset_bottom = 627.0
+scale = Vector2(1.5, 1.5)
+tooltip_text = "Makes the credits invisible in the title screen and the animation played at the start of a run."
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ia1n6")
+text = "SHOW MUSIC CREDITS"
+
+[node name="character-button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 520.0
+offset_right = 121.0
+offset_bottom = 592.0
+scale = Vector2(2, 2)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yql1r")
+icon = ExtResource("8_hiwto")
+flat = true
+
+[node name="character" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ia1n6")
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 374.0
+offset_right = 192.0
+offset_bottom = 397.0
+text = "+/select on controller"
+
+[node name="quit" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w65of")
+}
+
+[node name="shield" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+position = Vector2(-143, 327)
+scale = Vector2(5, 5)
+texture = ExtResource("8_ia1n6")
+
+[node name="quit_button" type="Button" parent="."]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 54.0
+offset_bottom = 48.0
+scale = Vector2(2, 2)
+text = "X"
+
+[connection signal="pressed" from="endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="bosses" to="." method="_on_bosses_pressed"]
+[connection signal="pressed" from="demain" to="." method="_on_demain_pressed"]
+[connection signal="pressed" from="go_to_book" to="." method="_on_go_to_book_pressed"]
+[connection signal="pressed" from="info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="character-button" to="." method="_on_characterbutton_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

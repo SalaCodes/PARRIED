@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cjxxr2tms64gc"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_dxw7e"]
+
+[resource]
+script = ExtResource("1_dxw7e")
+title = "HEALER"
+description = "Heals .5 hp every 15 seconds."

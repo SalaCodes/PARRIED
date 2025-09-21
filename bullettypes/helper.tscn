@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://de5vqtscbvga6"]
+
+[ext_resource type="Script" uid="uid://byidaojpbrsud" path="res://bullettypes/helper.gd" id="1_fmpev"]
+[ext_resource type="Texture2D" uid="uid://drgumcowfomqb" path="res://assets/hphelper.png" id="2_fmpev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
+size = Vector2(48, 39.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmpev"]
+size = Vector2(32.9999, 42.0001)
+
+[node name="helper" type="StaticBody2D" groups=["b", "helper"]]
+collision_layer = 2
+script = ExtResource("1_fmpev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 7.25)
+shape = SubResource("RectangleShape2D_mkf8s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.99997, 6.49998)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_fmpev")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_fmpev")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://5x7jpfi8n13f"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_3j51c"]
+
+[resource]
+script = ExtResource("1_3j51c")
+title = "TWICE THE POWER"
+description = "GAIN A WHOLE EXTRA SHIELD TO PARRY WITH."

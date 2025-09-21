@@ -1,0 +1,495 @@
+[gd_scene load_steps=26 format=3 uid="uid://bw7diywdpupwa"]
+
+[ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_4c3rm"]
+[ext_resource type="Script" uid="uid://bjr2ipfgednri" path="res://storymode/bosses/the_lights_of_hell.gd" id="1_w4it6"]
+[ext_resource type="Script" uid="uid://boso1gh52ho23" path="res://scenes/canvas_debug.gd" id="2_uuq1w"]
+[ext_resource type="Texture2D" uid="uid://b0ki4dqs3xuij" path="res://assets/thelightofdeath.png" id="3_hp4xq"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_l3lqn"]
+[ext_resource type="Script" uid="uid://diiyu53vegtxm" path="res://scenes/canvas_layer.gd" id="4_kh0ji"]
+[ext_resource type="Script" uid="uid://dbhbjpkqalqmk" path="res://scenes/upgrades.gd" id="4_xwxy2"]
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="5_j375m"]
+[ext_resource type="Resource" uid="uid://05pkgyprt1x7" path="res://upgrade/upgrades/giveparriesfordmg.tres" id="6_iper8"]
+[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/bulletsbutheal.tres" id="7_uuq1w"]
+[ext_resource type="Resource" uid="uid://dlaivi1x1jqx4" path="res://upgrade/upgrades/healchance.tres" id="8_l3lqn"]
+[ext_resource type="Resource" uid="uid://5x7jpfi8n13f" path="res://upgrade/upgrades/doubletrouble.tres" id="9_kh0ji"]
+[ext_resource type="Resource" uid="uid://dbetnuf0iobo6" path="res://upgrade/upgrades/prayedfast.tres" id="10_727vf"]
+[ext_resource type="Resource" uid="uid://cwtltfv5c3vhs" path="res://upgrade/upgrades/dash.tres" id="11_3y7ua"]
+[ext_resource type="Resource" uid="uid://cjxxr2tms64gc" path="res://upgrade/upgrades/healing.tres" id="12_cwgqf"]
+[ext_resource type="Resource" uid="uid://38b3skatoki3" path="res://upgrade/upgrades/nospeed.tres" id="13_3cqyo"]
+[ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="14_ycrg2"]
+[ext_resource type="Texture2D" uid="uid://wpteq57gao3v" path="res://storymode/bossassets/TLOFbody.png" id="18_l3lqn"]
+
+[sub_resource type="Animation" id="Animation_fwv63"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hp4xq"]
+resource_name = "moving"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 1.7666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.22173, 1.22173]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.99, 2.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.22173, 1.22173]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwv63"]
+_data = {
+&"RESET": SubResource("Animation_fwv63"),
+&"moving": SubResource("Animation_hp4xq")
+}
+
+[sub_resource type="Animation" id="Animation_w7kh3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(551, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7r4gi"]
+resource_name = "upgrade_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(551, 300)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3hyu"]
+_data = {
+&"RESET": SubResource("Animation_w7kh3"),
+&"upgrade_animation": SubResource("Animation_7r4gi")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xxn5x"]
+radius = 352.751
+
+[node name="THE LIGHTS OF HELL" type="Node2D"]
+script = ExtResource("1_w4it6")
+
+[node name="canvasDebug" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("2_uuq1w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="canvasDebug"]
+process_mode = 3
+offset_left = 3.0
+offset_right = 1154.0
+offset_bottom = 649.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_l3lqn")
+text = "DEBUG:
+
+speed:
+next upgrade:
+health: 
+max health:
+parries:
+chosen upgrades:
+upgrades: 
+souls: "
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 4
+visible = false
+script = ExtResource("4_kh0ji")
+
+[node name="PAUSE MENU" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PAUSE MENU"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PAUSE MENU/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("14_ycrg2")
+theme_override_fonts/font = ExtResource("3_l3lqn")
+theme_override_font_sizes/font_size = 35
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="continue" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="go_back" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "GO TO TITLE"
+
+[node name="quit" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "QUIT"
+
+[node name="CanvasBoss" type="CanvasLayer" parent="."]
+
+[node name="TloFbody" type="Sprite2D" parent="CanvasBoss"]
+position = Vector2(601, 46)
+scale = Vector2(12, 12)
+texture = ExtResource("18_l3lqn")
+
+[node name="healthbar" type="ProgressBar" parent="CanvasBoss"]
+offset_left = 190.0
+offset_top = 125.0
+offset_right = 972.0
+offset_bottom = 152.0
+min_value = 100.0
+value = 100.0
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D2" type="Area2D" parent="." groups=["BOSS"]]
+position = Vector2(863, -28)
+
+[node name="Thelightofdeath" type="Sprite2D" parent="Area2D2"]
+position = Vector2(-4.76837e-07, 1.90735e-06)
+scale = Vector2(4.41, 17.5469)
+texture = ExtResource("3_hp4xq")
+offset = Vector2(0, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+polygon = PackedVector2Array(-138, 1116, 137, 1115, 14, 0, -15, 1)
+
+[node name="Area2D" type="Area2D" parent="." groups=["BOSS"]]
+position = Vector2(234, -28)
+
+[node name="Thelightofdeath" type="Sprite2D" parent="Area2D"]
+position = Vector2(-4.76837e-07, 1.90735e-06)
+scale = Vector2(4.41, 17.5469)
+texture = ExtResource("3_hp4xq")
+offset = Vector2(0, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-138, 1116, 137, 1115, 14, 0, -15, 1)
+
+[node name="player" parent="." instance=ExtResource("1_4c3rm")]
+position = Vector2(551, 300)
+
+[node name="playerspawn" type="Marker2D" parent="."]
+position = Vector2(551, 300)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fwv63")
+}
+autoplay = "moving"
+
+[node name="upgrades" type="Node2D" parent="."]
+process_mode = 3
+z_index = 2
+script = ExtResource("4_xwxy2")
+upgrades = Array[ExtResource("5_j375m")]([ExtResource("6_iper8"), ExtResource("7_uuq1w"), ExtResource("8_l3lqn"), ExtResource("9_kh0ji"), ExtResource("10_727vf"), ExtResource("11_3y7ua"), ExtResource("12_cwgqf"), ExtResource("13_3cqyo")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="upgrades"]
+libraries = {
+&"": SubResource("AnimationLibrary_e3hyu")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="upgrades"]
+z_index = 3
+offset_left = 293.0
+offset_top = 236.0
+offset_right = 293.0
+offset_bottom = 236.0
+mouse_filter = 2
+theme_override_constants/separation = 300
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="upgrades"]
+position = Vector2(551, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upgrades/Area2D"]
+shape = SubResource("CircleShape2D_xxn5x")
+disabled = true
+
+[node name="upgrades" type="RichTextLabel" parent="upgrades"]
+process_mode = 3
+visible = false
+offset_left = 813.0
+offset_top = 142.0
+offset_right = 1088.0
+offset_bottom = 600.0
+theme = ExtResource("14_ycrg2")
+text = "NO UPGRADES"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="bulletspawns" type="Node2D" parent="."]
+
+[node name="bulletspawn20" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1208, 238)
+
+[node name="bulletspawn23" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1225, 195)
+
+[node name="bulletspawn24" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1195, 96)
+
+[node name="bulletspawn25" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1236, -80)
+
+[node name="bulletspawn26" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1152, -80)
+
+[node name="bulletspawn27" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1038, -121)
+
+[node name="bulletspawn28" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1257, 33)
+
+[node name="bulletspawn29" type="Marker2D" parent="bulletspawns"]
+position = Vector2(923, -93)
+
+[node name="bulletspawn30" type="Marker2D" parent="bulletspawns"]
+position = Vector2(799, -80)
+
+[node name="bulletspawn31" type="Marker2D" parent="bulletspawns"]
+position = Vector2(675, -86)
+
+[node name="bulletspawn32" type="Marker2D" parent="bulletspawns"]
+position = Vector2(600, -84)
+
+[node name="bulletspawn33" type="Marker2D" parent="bulletspawns"]
+position = Vector2(508, -73)
+
+[node name="bulletspawn34" type="Marker2D" parent="bulletspawns"]
+position = Vector2(377, -73)
+
+[node name="bulletspawn35" type="Marker2D" parent="bulletspawns"]
+position = Vector2(266, -56)
+
+[node name="bulletspawn36" type="Marker2D" parent="bulletspawns"]
+position = Vector2(176, -56)
+
+[node name="bulletspawn37" type="Marker2D" parent="bulletspawns"]
+position = Vector2(67, -43)
+
+[node name="bulletspawn38" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-3, -23)
+
+[node name="bulletspawn39" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-67, -8)
+
+[node name="bulletspawn40" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-37, 103)
+
+[node name="bulletspawn41" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-50, 34)
+
+[node name="bulletspawn42" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-39, 289)
+
+[node name="bulletspawn43" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-54, 169)
+
+[node name="bulletspawn44" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-41, 383)
+
+[node name="bulletspawn45" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-37, 445)
+
+[node name="bulletspawn46" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-31, 509)
+
+[node name="bulletspawn47" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-37, 603)
+
+[node name="bulletspawn48" type="Marker2D" parent="bulletspawns"]
+position = Vector2(-18, 699)
+
+[node name="bulletspawn49" type="Marker2D" parent="bulletspawns"]
+position = Vector2(29, 703)
+
+[node name="bulletspawn50" type="Marker2D" parent="bulletspawns"]
+position = Vector2(123, 714)
+
+[node name="bulletspawn51" type="Marker2D" parent="bulletspawns"]
+position = Vector2(202, 710)
+
+[node name="bulletspawn52" type="Marker2D" parent="bulletspawns"]
+position = Vector2(303, 701)
+
+[node name="bulletspawn53" type="Marker2D" parent="bulletspawns"]
+position = Vector2(389, 701)
+
+[node name="bulletspawn54" type="Marker2D" parent="bulletspawns"]
+position = Vector2(443, 707)
+
+[node name="bulletspawn55" type="Marker2D" parent="bulletspawns"]
+position = Vector2(514, 707)
+
+[node name="bulletspawn56" type="Marker2D" parent="bulletspawns"]
+position = Vector2(615, 707)
+
+[node name="bulletspawn57" type="Marker2D" parent="bulletspawns"]
+position = Vector2(724, 716)
+
+[node name="bulletspawn58" type="Marker2D" parent="bulletspawns"]
+position = Vector2(820, 716)
+
+[node name="bulletspawn59" type="Marker2D" parent="bulletspawns"]
+position = Vector2(961, 714)
+
+[node name="bulletspawn60" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1100, 714)
+
+[node name="bulletspawn61" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1192, 701)
+
+[node name="bulletspawn62" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1218, 660)
+
+[node name="bulletspawn63" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1201, 564)
+
+[node name="bulletspawn64" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1237, 513)
+
+[node name="bulletspawn65" type="Marker2D" parent="bulletspawns"]
+position = Vector2(885, 730)
+
+[node name="bulletspawn66" type="Marker2D" parent="bulletspawns"]
+position = Vector2(859, -67)
+
+[node name="bulletspawn21" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1219, 319)
+
+[node name="bulletspawn22" type="Marker2D" parent="bulletspawns"]
+position = Vector2(1230, 417)
+
+[node name="heartconnector" type="Marker2D" parent="."]
+position = Vector2(569, 97)
+
+[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/continue" to="CanvasLayer" method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/go_back" to="CanvasLayer" method="_on_go_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_2_body_exited"]
+[connection signal="body_entered" from="upgrades/Area2D" to="upgrades" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

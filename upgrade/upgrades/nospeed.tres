@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://38b3skatoki3"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_g2qeq"]
+
+[resource]
+script = ExtResource("1_g2qeq")
+title = "DEATH TO SPEED"
+description = "Every time this upgrade is chosen, -1 chance that the speeder bullets are chosen. base is 1/5 (so after this it's 1/6, then 1/7, 1/8, etc.....)"

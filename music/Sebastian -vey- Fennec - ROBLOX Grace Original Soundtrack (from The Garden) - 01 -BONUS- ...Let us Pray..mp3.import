@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2q7w0dr6ygb"
+path="res://.godot/imported/Sebastian -vey- Fennec - ROBLOX Grace Original Soundtrack (from The Garden) - 01 -BONUS- ...Let us Pray..mp3-1fb7b5e276564693e0677b835ebbc93a.mp3str"
+
+[deps]
+
+source_file="res://music/Sebastian -vey- Fennec - ROBLOX Grace Original Soundtrack (from The Garden) - 01 -BONUS- ...Let us Pray..mp3"
+dest_files=["res://.godot/imported/Sebastian -vey- Fennec - ROBLOX Grace Original Soundtrack (from The Garden) - 01 -BONUS- ...Let us Pray..mp3-1fb7b5e276564693e0677b835ebbc93a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

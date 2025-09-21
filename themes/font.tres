@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://djyaafmnlul2h"]
+
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="1_tqokb"]
+
+[resource]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/shadow_outline_size = 15
+Label/font_sizes/font_size = 10
+Label/fonts/font = ExtResource("1_tqokb")

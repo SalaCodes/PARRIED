@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlyg3ddadcnak"]
+
+[ext_resource type="Script" uid="uid://depul30qyb6mi" path="res://scenes/info_page.gd" id="1_dfcej"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="1_m2mjk"]
+[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="2_dfcej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7vx1"]
+
+[node name="INFO PAGE" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dfcej")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 821.0
+offset_bottom = 462.0
+scale = Vector2(1.4, 1.4)
+text = "HEY PLAYER,
+
+thanks for playing PARRIED made by the solo dev \"Saladin\".
+This page is purely for how this game is controlled, info about entities are in the book.
+IF YOU ARE ON CONTROLLER, READ THIS, OR ELSE YOU WON'T BE ABLE TO PLAY THE GAME NORMALLY
+
+CONTROLS:
+
+KEYBOARD AND MOUSE:
+WASD = MOVEMENT
+SHIELD LOOKS AT CURSOR
+LEFT MOUSE BUTTON = PARRY
+RIGHT MOUSE BUTTON = DASH (if upgrade unlocked)
+TAB = TOGGLE DEBUG STUFF
+ESCAPE = PAUSE
+
+(search online for some controller buttons, nintendo, playstation, xbox, etc. all have different layouts, the following buttons are from nintendo)
+CONTROLLER:
+ZR = PARRY, START IN MAIN MENU AND SKIP ANIMATIONS, AND THE BACK BUTTON HERE, LEAVE THE BOOK (most ui elements)
+R = DASH, CHARACTER SHOP
+ZL = BOOK IN MAIN MENU, LEAVE THE BOOK
+LEFT STICK = MOVEMENT
+RIGHT STICK = ROTATE SHIELD
+Y = IN PAUSE MENU CONTINUE
+X = IN PAUSE MENU EXIT
+A = IN PAUSE MENU GO TO TITLE, IN MAIN MENU TOGGLE CREDITS
++ (top right button) = PAUSE, LEAVE DEALER, OPEN THIS SCENE FROM MAIN MENU
+- (top left button) = TOGGLE DEBUG STUFFs"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 925.0
+offset_top = 12.0
+offset_right = 1061.0
+offset_bottom = 52.0
+scale = Vector2(1.49722, 2.03171)
+theme_override_fonts/font = ExtResource("1_m2mjk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n7vx1")
+text = "BACK"
+icon = ExtResource("2_dfcej")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

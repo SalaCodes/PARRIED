@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhj4t45og6ngw"
+path="res://.godot/imported/Sebastian -vey- Fennec & Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION.mp3-f26df7414644f994df4f94a615ee3665.mp3str"
+
+[deps]
+
+source_file="res://music/Sebastian -vey- Fennec & Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION.mp3"
+dest_files=["res://.godot/imported/Sebastian -vey- Fennec & Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION.mp3-f26df7414644f994df4f94a615ee3665.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://05pkgyprt1x7"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_ygn1o"]
+
+[resource]
+script = ExtResource("1_ygn1o")
+title = "PRAYED UPON"
+description = "Gain parries when you take damage"

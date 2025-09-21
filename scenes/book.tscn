@@ -1,0 +1,421 @@
+[gd_scene load_steps=24 format=3 uid="uid://d21f6ikvel87k"]
+
+[ext_resource type="Texture2D" uid="uid://d378hlsvhpdy2" path="res://assets/mapdeco.png" id="1_3wpgy"]
+[ext_resource type="Texture2D" uid="uid://cgy6vgqb2wclj" path="res://assets/book.png" id="1_ble1a"]
+[ext_resource type="Script" uid="uid://babq2cmy0ppwa" path="res://scenes/book.gd" id="1_sm5br"]
+[ext_resource type="Texture2D" uid="uid://d1dd8x5xkhbv8" path="res://assets/bookopening.png" id="3_8uccb"]
+[ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="5_01hes"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="6_dm1x1"]
+[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="7_cgkwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71j4m"]
+atlas = ExtResource("1_3wpgy")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfnet"]
+atlas = ExtResource("1_3wpgy")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7141"]
+atlas = ExtResource("1_3wpgy")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8uccb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71j4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfnet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7141")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ble1a"]
+atlas = ExtResource("1_ble1a")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih1ba"]
+atlas = ExtResource("3_8uccb")
+region = Rect2(2048, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgkwt"]
+atlas = ExtResource("3_8uccb")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm5br"]
+atlas = ExtResource("3_8uccb")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01hes"]
+atlas = ExtResource("3_8uccb")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm1x1"]
+atlas = ExtResource("3_8uccb")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wpgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ble1a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}],
+"loop": false,
+"name": &"next_page",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm5br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01hes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm1x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgkwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm1x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01hes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm5br")
+}],
+"loop": false,
+"name": &"opening_reverse",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih1ba")
+}],
+"loop": true,
+"name": &"opneded",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_01hes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sm5br"]
+resource_name = "book"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"opening", &"opneded"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_dm1x1"]
+resource_name = "reverse_book"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"opening_reverse"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_title"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_01hes"]
+_data = {
+&"RESET": SubResource("Animation_01hes"),
+&"book": SubResource("Animation_sm5br"),
+&"reverse_book": SubResource("Animation_dm1x1")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgkwt"]
+
+[node name="book" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sm5br")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="map" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(574.501, 325.5)
+scale = Vector2(18.0469, 20.4062)
+sprite_frames = SubResource("SpriteFrames_8uccb")
+autoplay = "default"
+
+[node name="book" type="AnimatedSprite2D" parent="."]
+position = Vector2(570, 313)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3wpgy")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_01hes")
+}
+autoplay = "book"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="types" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 156.0
+offset_right = 436.0
+offset_bottom = 189.0
+theme = ExtResource("5_01hes")
+theme_override_fonts/normal_font = ExtResource("6_dm1x1")
+text = "BULLET TYPES:"
+
+[node name="text" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 186.0
+offset_right = 533.0
+offset_bottom = 481.0
+theme = ExtResource("5_01hes")
+theme_override_fonts/normal_font = ExtResource("6_dm1x1")
+theme_override_font_sizes/normal_font_size = 8
+text = "BULLET:
+
+Can move slow to fast, randomized..... does 1 damage, normal parry. +1 PARRY
+
+
+Speeder:
+
+fast moving bullet, the slowest speeder is still faster than the fastest bullet. 0.5 dmg, normal parry. +1 parry.
+
+
+Upgrader:
+
+Instantly upgrades, doesn't change the next milestone for the next upgrade. SPECIAL PARRY: when parried, doubles the milestone without recieving an upgrade.
+
+
+helper:
+
+Helper heals you on contact, +1 hp. If you are fully healed, 1 gets added to your max health. When parried, you lose 1 max health.
+
+
+LOOKER:
+
+The looker is a slow-moving bullet where your shield points to until the looker gets destroyed, there can only be 1 looker at a times.s"
+
+[node name="types2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 161.0
+offset_right = 754.0
+offset_bottom = 194.0
+theme = ExtResource("5_01hes")
+theme_override_fonts/normal_font = ExtResource("6_dm1x1")
+text = "UPGRADES:"
+
+[node name="text2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 191.0
+offset_right = 851.0
+offset_bottom = 486.0
+theme = ExtResource("5_01hes")
+theme_override_fonts/normal_font = ExtResource("6_dm1x1")
+theme_override_font_sizes/normal_font_size = 8
+text = "TWICE THE GAMBLE:
+
+Two times more bullets spawns, but that also means more frequent upgrades, and bigger chance for healing. (stackable)
+
+
+DASH:
+
+ABILITY: CLick right mouse button to teleport to your cursor, cooldown: 30s. After first upgrade, decreases cooldown by 1 second. (max. 10 seconds)
+
+
+TWICE THE POWER:
+
+GAIN A WHOLE EXTRA SHIELD TO PARRY WITH.
+
+
+PRAYED UPON:
+
+Gain parries when you take damage
+
+
+HEAL FOR LIFE:
+
+Spawn more healing bullets (+2%). Maxes at 20% heal.s
+
+
+Healer:
+
+Heals .5 hp every 15 seconds.
+
+
+DEATH TO SPEED:
+
+Every time this upgrade is chosen, -1 chance that the speeder bullets are chosen. base is 1/5 (so after this it's 1/6, then 1/7, 1/8, etc.....)
+
+
+PRAYED FAST:
+
+Become faster (stackable)."
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 112.0
+offset_right = 370.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("6_dm1x1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cgkwt")
+text = "CLOSE"
+icon = ExtResource("7_cgkwt")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

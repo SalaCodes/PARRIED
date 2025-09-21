@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cwtltfv5c3vhs"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_icjp6"]
+
+[resource]
+script = ExtResource("1_icjp6")
+title = "DASH"
+description = "ABILITY: CLick right mouse button to teleport to your cursor, cooldown: 30s. After first upgrade, decreases cooldown by 1 second. (max 10 seconds)"

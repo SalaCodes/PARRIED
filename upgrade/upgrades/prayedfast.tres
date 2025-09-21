@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://dbetnuf0iobo6"]
+
+[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_u26lj"]
+
+[resource]
+script = ExtResource("1_u26lj")
+title = "PRAYED FAST"
+description = "Become faster (stackable)."

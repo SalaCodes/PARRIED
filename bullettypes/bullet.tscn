@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://7xc41vuhk1bn"]
+
+[ext_resource type="Texture2D" uid="uid://bqf7v1qb6cafa" path="res://assets/bullet.png" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://g5xqrtxtx71n" path="res://fonts/bullet.gd" id="1_y25gk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eoqba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y25gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5glv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
+size = Vector2(70, 31)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y25gk"]
+radius = 16.0
+height = 66.0
+
+[node name="bullet" type="StaticBody2D" groups=["b", "bullet"]]
+collision_layer = 2
+script = ExtResource("1_y25gk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eoqba")
+autoplay = "default"
+frame_progress = 0.921016
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_mkf8s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_y25gk")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

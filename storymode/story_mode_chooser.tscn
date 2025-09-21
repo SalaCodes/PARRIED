@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://2msvos3lli68"]
+
+[ext_resource type="Script" uid="uid://bdm17tuojl2kl" path="res://storymode/story_mode_chooser.gd" id="1_r3q3y"]
+[ext_resource type="Texture2D" uid="uid://c4s5625jb1pn8" path="res://storymode/bossesicon/TLOF.png" id="1_w2riu"]
+[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="3_g4r1x"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_syy18"]
+
+[node name="StoryModeChooser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3q3y")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 21.0
+offset_right = 550.0
+offset_bottom = 44.0
+scale = Vector2(2, 2)
+text = "VERY HARD, BUT VERY REWARDING"
+
+[node name="TLOF" type="Button" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 189.0
+offset_right = 218.0
+offset_bottom = 325.0
+scale = Vector2(2, 2)
+icon = ExtResource("1_w2riu")
+flat = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 146.0
+offset_bottom = 46.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("3_syy18")
+theme_override_font_sizes/font_size = 11
+text = "TITLE SCREEN"
+icon = ExtResource("3_g4r1x")
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="TLOF" to="." method="_on_tlof_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
