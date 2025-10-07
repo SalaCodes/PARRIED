@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=25 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
 [ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
@@ -117,13 +117,25 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("hand:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2, 2.2333333, 3.01),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(211, 691), Vector2(620, 460)]
+"values": [Vector2(211, 691), Vector2(550, 500), Vector2(650, 500), Vector2(211, 691)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lever:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01, 2.03),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.5323254218582705, -0.5323254218582705, 0.5323254218582705]
 }
 
 [sub_resource type="Animation" id="Animation_af3b0"]
@@ -140,62 +152,24 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(211, 691)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lever:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af3b0"]
 _data = {
 &"RESET": SubResource("Animation_af3b0"),
 &"hand": SubResource("Animation_txr6g")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x841i"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(0, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vhbw6"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(128, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0uha"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(256, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxb3w"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(384, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4s0uq"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(512, 64, 128, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdxhv"]
-atlas = ExtResource("4_k77mw")
-region = Rect2(640, 64, 128, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ftwen"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x841i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vhbw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a0uha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxb3w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4s0uq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kdxhv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="casino" type="Control"]
 layout_mode = 3
@@ -210,16 +184,6 @@ offset_right = 1189.0
 offset_bottom = 754.0
 color = Color(0.533325, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="gamble_text" type="Label" parent="."]
-layout_mode = 0
-offset_left = 158.0
-offset_top = 274.0
-offset_right = 370.0
-offset_bottom = 300.0
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("9_qcp6i")
-text = "GAMBLE GAMBLE"
 
 [node name="dealer_text" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -317,16 +281,17 @@ scale = Vector2(3, 3)
 texture = ExtResource("12_dfu5g")
 
 [node name="Lever" type="Sprite2D" parent="."]
-position = Vector2(595, 537)
+position = Vector2(594, 622)
 scale = Vector2(3, 3)
 texture = ExtResource("13_txr6g")
+offset = Vector2(0, -32)
 
-[node name="hand" type="AnimatedSprite2D" parent="."]
+[node name="hand" type="Sprite2D" parent="."]
 position = Vector2(211, 691)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_ftwen")
-frame = 4
-frame_progress = 0.15683119
+texture = ExtResource("4_k77mw")
+region_enabled = true
+region_rect = Rect2(31.665668, 84.78663, 54.84599, 43.433556)
 
 [connection signal="pressed" from="gamble" to="." method="_on_gamble_pressed"]
 [connection signal="pressed" from="go away" to="." method="_on_go_away_pressed"]

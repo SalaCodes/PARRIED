@@ -1,10 +1,9 @@
 extends Control
 
-@onready var gamble_text: Label = $gamble_text
 @onready var dealer_text: RichTextLabel = $dealer_text
 @onready var gamble: TextureButton = $gamble
 @onready var hand_animation: AnimationPlayer = $hand_animation
-@onready var hand: AnimatedSprite2D = $hand
+@onready var hand: Sprite2D = $hand
 @onready var sfx: AudioStreamPlayer = $sfx
 @onready var music: AudioStreamPlayer = $music
 @onready var souls_animation: AnimationPlayer = $souls_animation
@@ -56,7 +55,7 @@ func _on_gamble_pressed() -> void:
 		await get_tree().create_timer(1).timeout
 		for i in range(1, 6):
 			for upgrades in Characters.characters:
-				gamble_text.text = upgrades["skin"].to_upper()
+				# ADDDDDDDDDDDDDDDDDDDDDDD
 				await get_tree().create_timer(gamble_time).timeout
 				gamble_time -= .05
 		
@@ -70,7 +69,7 @@ func _on_gamble_pressed() -> void:
 			souls_label_gamble.text = "+50 souls"
 			SoulsHandler.souls += 50
 		else:
-			gamble_text.text = gambled_character["skin"].to_upper()
+			# ADDDDDDDDDDDDDDDDDDDDDDD
 			if gambled_character == Characters.chosen_character:
 				souls_animation.play("souls")
 				souls_label_gamble.text = "+20 souls"
@@ -127,7 +126,6 @@ func dealer_texts():
 			dealer_text.text = "ugh... need... [color=#ff0000]souls.... NOW[/color]"
 			show_next_letter()
 		4:
-			gamble_text.text = "CAT..... just kidding"
 			dealer_text.text = "YOU GOT THE CAT! that's a lie, now give me [color=#ff0000]souls[/color]"
 			show_next_letter()
 		5:
@@ -150,7 +148,6 @@ func dealer_texts():
 			dealer_text.text = "'Parry the [color=#ff0000]bullets[/color]' they said, 'it'll get you out of here' they said."
 			show_next_letter()
 		10:
-			gamble_text.text = "WILL TO LIVE"
 			dealer_text.text = "YOU GOT A WILL TO [color=#ff0000]LIVE[/color]...... unlike me...."
 			show_next_letter()
 		11:
