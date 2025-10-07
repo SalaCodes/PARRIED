@@ -5,7 +5,7 @@ extends Control
 @onready var gamble: TextureButton = $gamble
 @onready var animation_player: AnimationPlayer = $hand_animation
 @onready var hand: AnimatedSprite2D = $hand
-@onready var audio_player = $sfx
+@onready var audio_player: AudioStreamPlayer = $sfx
 @onready var music: AudioStreamPlayer = $music
 @onready var souls_animation: AnimationPlayer = $souls_animation
 @onready var souls_label_gamble: Label = $souls_label_gamble
