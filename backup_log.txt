@@ -44,3 +44,17 @@ fatal: unable to access 'https://github.com/SalaCodes/PARRIED/': Could not resol
 ============================
 ============================
 Backup started: 2025-10-07 21:50:01
+[hallo c00837b] Auto-backup: 2025-10-07 21:50:01
+ 7 files changed, 133 insertions(+), 76 deletions(-)
+ create mode 100644 character-assets/armored-player.png
+ create mode 100644 character-assets/armored-player.png.import
+ create mode 100644 character-assets/demon.png
+ create mode 100644 character-assets/demon.png.import
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/SalaCodes/PARRIED
+   6b0e8ec..c00837b  hallo -> hallo
+✅ Backup successful at 21:50:07
+============================
+============================
+Backup started: 2025-10-07 22:00:01
