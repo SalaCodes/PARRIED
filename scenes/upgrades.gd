@@ -86,7 +86,7 @@ func _update_highlight() -> void:
 				card_nodes[i].modulate = Color(1, 1, 1)    # normal
 
 
-func _select_upgrade(upgrade):
+func _select_upgrade(upgrade: Upgrade):
 	for child in h_box_container.get_children():
 		child.visible = false
 	upgradesList.append(upgrade.title)
@@ -94,40 +94,44 @@ func _select_upgrade(upgrade):
 	player.upgradesChosen += 1
 	animation_player.stop()
 	await get_tree().create_timer(0.1).timeout
+	
+	var file_name = upgrade.resource_path.get_file()   # "my_upgrade.tres"
+	var base_name = file_name.get_basename()          # "my_upgrade"
 
-	match upgrade.title:
-		"PRAYED UPON":
+	match base_name:
+		"giveparriesfordmg":
 			player.upgradedgpfd = true
 			upgrades.erase(upgrade)
-		"TWICE THE GAMBLE":
+		"more_bullets":
 			$"..".bulletamount *= 2
 			upgrades.erase(upgrade)
-		"HEAL FOR LIFE":
+		"healchance":
 			if $"..".healchance <= 80:
 				$"..".healchance = 80
 				upgrades.erase(upgrade)
 			else:
 				$"..".healchance -= 2
-		"TWICE THE POWER":
+		"doubletrouble":
 			player.secondshield = true
 			upgrades.erase(upgrade)
-		"PRAYED FAST":
+		"prayedfast":
 			player.SPEED += 10
-		"DASH":
+		"dash":
 			player.upgradeDash = true
 			player.dash_cooldown -= 1
 			if player.dash_cooldown <= 10:
 				player.dash_cooldown = 10
 				upgrades.erase(upgrade)
-		"HEALER":
+		"healing":
 			player.upgradehealer = true
 			upgrades.erase(upgrade)
-		"DEATH TO SPEED":
+		"nospeed":
 			$"..".speedychance += 1
 
 	# clear cards and resume game
 	
 	animation_player.play_backwards("upgrade_animation")
+	Cursor.get_node("cursor").play("shield_cursor")
 	await animation_player.animation_finished
 	
 	player.start = true
@@ -159,6 +163,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func upgrading_time():
+	
+	Cursor.get_node("cursor").play("default")
+	Cursor.get_node("cursor").rotation = 0
 	
 	update_upgrade_text()
 	

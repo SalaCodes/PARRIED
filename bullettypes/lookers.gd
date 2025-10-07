@@ -9,10 +9,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $"..".name == "world" or $"..".name == "THE LIGHTS OF HELL":
-		var player: CharacterBody2D = $"../player"
-		look_at(player.global_position)
-		position += transform.x * SPEED * delta
+	var player: CharacterBody2D = $"../player"
+	look_at(player.global_position)
+	position += transform.x * SPEED * delta
 
 
 

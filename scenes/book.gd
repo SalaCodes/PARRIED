@@ -17,9 +17,6 @@ func _process(delta: float) -> void:
 		if directionr:
 			text_2.get_v_scroll_bar().value -= text_2.get_v_scroll_bar().step * directionr
 		
-		
-		if Input.is_action_just_pressed("parry") or Input.is_action_just_pressed("book"):
-			_on_button_pressed()
 
 
 func _on_button_pressed() -> void:
@@ -27,4 +24,4 @@ func _on_button_pressed() -> void:
 
 
 func go_to_title():
-	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().change_scene_to_file("res://submenus/submenu_playmenu.tscn")

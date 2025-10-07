@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://bfxnc0yvegch6"]
-
-[ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="1_vmj1v"]
-
-[resource]
-script = ExtResource("1_vmj1v")
-title = "TWICE THE GAMBLE"
-description = "Two times more bullets spawns, but that also means more frequent upgrades, and bigger chance for healing. (stackable)"

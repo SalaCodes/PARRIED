@@ -17,12 +17,17 @@ class_name Player
 @onready var dash_timer: Timer = $dashTimer
 @onready var collision_shape_2d: CollisionShape2D = $parryCollision/CollisionShape2D
 @onready var shield_parry: Sprite2D = $"parryCollision/Shield(parry)"
+@onready var lookerisher_eanimation: AnimationPlayer = $CanvasLayer/LOOKERISHEREanimation
+@onready var death_particles: GPUParticles2D = $death_particles
+@onready var hplabelthing: Label = $hplabelthing
+@onready var heal_animation: AnimationPlayer = $heal
 
 
 #animated players onready variables skins
 @onready var default_skin: AnimatedSprite2D = $default
 @onready var cat_skin: AnimatedSprite2D = $cat
 @onready var armored_skin: AnimatedSprite2D = $armored
+@onready var demon_skin: AnimatedSprite2D = $demon
 
 
 
@@ -35,6 +40,7 @@ class_name Player
 @export var upgradesChosen = 0
 @export var dash_cooldown = 31
 @export var dash_speed: float = 8000.0
+@export var can_attack = true
 
 
 # UPGRADES
@@ -51,9 +57,17 @@ var health_animation = 0
 var lookerexists = false
 var lookerNode: Node
 var canincreasemaxhp = Characters.chosen_character["canincreasemaxhp"]
+var dashactivated = false
+var particles = true
+
 
 
 func _ready() -> void:
+	if !Settings.particles:
+		particles = false
+	else:
+		particles = true
+	
 	health = max_health
 	animation_player.play("upgrade_hide")
 	getbackhere.visible = false
@@ -65,6 +79,10 @@ func _process(delta: float) -> void:
 	lookerNode = world.get_node_or_null("looker")
 	lookerexists = lookerNode != null
 	
+	if lookerexists:
+		lookerisher_eanimation.play("lookerishere")
+	else:
+		lookerisher_eanimation.play("RESET")
 	
 	if start:
 		if Input.get_connected_joypads().is_empty():
@@ -89,7 +107,7 @@ func _process(delta: float) -> void:
 
 	dashlabel.text = str("%.2f" % dash_timer.time_left)
 	
-	
+	Cursor.get_node("cursor").look_at(position)
 	
 	var direction = Input.get_vector("left", "right", "up", "down").normalized()
 	if direction:
@@ -106,7 +124,7 @@ func _process(delta: float) -> void:
 		var parry = $AnimationPlayer.get_animation("parry")
 		parry.track_set_enabled(3, true)
 	
-	if Input.is_action_just_pressed("parry") and not animation_player.is_playing() and start:
+	if Input.is_action_just_pressed("parry") and not animation_player.is_playing() and start and can_attack:
 		animation_player.play("parry")
 
 	
@@ -117,26 +135,28 @@ func _process(delta: float) -> void:
 	if upgradeDash:
 		dash.visible = true
 		dashlabel.visible = true
-		if dash_timer.is_stopped() or dash_timer.timeout:
+	
+		if !dashactivated:
 			dashlabel.text = "ACTIVATE?"
+	
 		if Input.is_action_just_pressed("dash") and candash:
 			candash = false
-			
+			dashactivated = true
+			dashlabel.text = "..."  # cooldown state
+
 			var dash_dir = Vector2.RIGHT.rotated(parry_collision.global_rotation) 
 			global_position -= dash_dir * dash_speed * delta
-			
+
 			dash_timer.wait_time = dash_cooldown
 			dash_timer.start()
-			await dash_timer.timeout
+
+			await dash_timer.timeout  # wait for timer
+			dashlabel.text = "ACTIVATE?"
+			dashactivated = false
 			candash = true
 	
-	match Characters.chosen_character["skin"]:
-		"default":
-			default_skin.play(str(health_animation))
-		"cat":
-			cat_skin.play(str(health_animation))
-		"armored":
-			armored_skin.play(str(health_animation))
+	character_skin(Characters.chosen_character["skin"])
+	
 	
 	if health == 1:
 		health_animation = 5
@@ -155,11 +175,12 @@ func _process(delta: float) -> void:
 			if child.is_in_group("b"):
 				child.queue_free()
 		$"../Timer".stop()
+		Sounds.music.seek(10)
+		await get_tree().create_timer(2).timeout
 		$"../Timer".start()
-		Sounds.music.seek(11)
-		await get_tree().create_timer(1).timeout
 		SPEED = Characters.chosen_character["speed"]
-	elif health <= 0 and world.name == "THE LIGHTS OF HELL":
+	elif health <= 0 and world.is_in_group("BOSS"):
+		Sounds.calm_music()
 		get_tree().change_scene_to_file("res://storymode/story_mode_chooser.tscn")
 	
 	
@@ -195,16 +216,23 @@ func play_parry():
 
 func damage(amount):
 	health -= amount
+	hplabelthing.text = "-" + str(amount)
+	heal_animation.stop()
+	heal_animation.play("damage")
 	if health_animation < 5:
 		health_animation += 1
 	if upgradedgpfd:
 		parries += 1
 
 func heal(amount):
-	if health_animation > 0:
-		health_animation -= 1
+	Sounds.play_heal()
+	hplabelthing.text = "+" + str(amount)
+	heal_animation.stop()
+	heal_animation.play("heal")
 	if health != max_health:
 		health += amount
+		if health_animation > 0:
+			health_animation -= 1
 	else:
 		max_health += 1
 
@@ -229,7 +257,27 @@ func upgrade_hide():
 func upgrade_now():
 	$"../upgrades".upgrading_time()
 
+
+func character_skin(char: String):
+	default_skin.play("invis")
+	cat_skin.play("invis")
+	armored_skin.play("invis")
+	demon_skin.play("invis")
+	
+	match char:
+		"default":
+			default_skin.play(str(health_animation))
+		"cat":
+			cat_skin.play(str(health_animation))
+		"armored":
+			armored_skin.play(str(health_animation))
+		"demon":
+			demon_skin.play(str(health_animation))
+
+
 func died():
+	if particles:
+		death_particles_play()
 	SoulsHandler.souls += round(parries / 5)
 	upgradeDash = false
 	upgradedgpfd = false
@@ -259,3 +307,18 @@ func _on_heal_timer_timeout() -> void:
 
 func reset_animation():
 	animation_player.play("RESET")
+
+func hide_shield():
+	animation_player.play("everything_disable")
+
+func change_can_attack(boolean: bool):
+	can_attack = boolean
+
+func death_particles_play():
+	death_particles.emitting = true
+
+func hide_all():
+	default_skin.visible = false
+	cat_skin.visible = false
+	armored_skin.visible = false
+	parry_collision.visible = false

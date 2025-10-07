@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://2msvos3lli68"]
+[gd_scene load_steps=7 format=3 uid="uid://2msvos3lli68"]
 
 [ext_resource type="Script" uid="uid://bdm17tuojl2kl" path="res://storymode/story_mode_chooser.gd" id="1_r3q3y"]
 [ext_resource type="Texture2D" uid="uid://c4s5625jb1pn8" path="res://storymode/bossesicon/TLOF.png" id="1_w2riu"]
-[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="3_g4r1x"]
+[ext_resource type="Texture2D" uid="uid://gsw1daqhyn1i" path="res://storymode/bossesicon/DEM_AI_N.png" id="3_dmmui"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_syy18"]
+[ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="4_dmmui"]
+[ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="5_vt2aj"]
 
 [node name="StoryModeChooser" type="Control"]
 layout_mode = 3
@@ -23,38 +25,59 @@ offset_bottom = 754.0
 color = Color(0.533325, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 21.0
-offset_right = 550.0
-offset_bottom = 44.0
-scale = Vector2(2, 2)
-text = "VERY HARD, BUT VERY REWARDING"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="TLOF" type="Button" parent="."]
-layout_mode = 0
-offset_left = 82.0
-offset_top = 189.0
-offset_right = 218.0
-offset_bottom = 325.0
-scale = Vector2(2, 2)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+alignment = 1
+
+[node name="TLOF" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 4
 icon = ExtResource("1_w2riu")
 flat = true
+expand_icon = true
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 6.0
-offset_right = 146.0
-offset_bottom = 46.0
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("3_syy18")
-theme_override_font_sizes/font_size = 11
-text = "TITLE SCREEN"
-icon = ExtResource("3_g4r1x")
+[node name="DEM_AI_N" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("3_dmmui")
 flat = true
-icon_alignment = 1
+expand_icon = true
 
-[connection signal="pressed" from="TLOF" to="." method="_on_tlof_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 71.0
+offset_right = 595.0
+offset_bottom = 97.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_syy18")
+text = "VERY HARD, BUT VERY REWARDING"
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 553.0
+offset_right = 106.0
+offset_bottom = 585.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("4_dmmui")
+texture_hover = ExtResource("5_vt2aj")
+texture_focused = ExtResource("5_vt2aj")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TLOF" to="." method="_on_tlof_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/DEM_AI_N" to="." method="_on_dem_ai_n_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_button_pressed"]

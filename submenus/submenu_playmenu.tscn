@@ -1,0 +1,151 @@
+[gd_scene load_steps=12 format=3 uid="uid://duke754uejv31"]
+
+[ext_resource type="Script" uid="uid://hwgrt7armqux" path="res://submenus/submenu_playmenu.gd" id="1_peucw"]
+[ext_resource type="Texture2D" uid="uid://b8v8v2y574w3i" path="res://assets/background-dealer.png" id="2_vqhpy"]
+[ext_resource type="Texture2D" uid="uid://b4sldvdrui2gj" path="res://buttons/endless-normal.png" id="3_mlnmf"]
+[ext_resource type="Texture2D" uid="uid://cy4vhuscy17lc" path="res://buttons/endless-hover.png" id="4_adyrf"]
+[ext_resource type="Texture2D" uid="uid://dmud705ijqehg" path="res://assets/icon.png" id="5_bspxi"]
+[ext_resource type="Texture2D" uid="uid://x8fadyorpkqw" path="res://buttons/bosses-normal.png" id="5_e7xsi"]
+[ext_resource type="Texture2D" uid="uid://ldfuybm0x2a1" path="res://buttons/bosses-hover.png" id="6_gab71"]
+[ext_resource type="Texture2D" uid="uid://mie7ebkqsiix" path="res://buttons/book-normal.png" id="7_mlnmf"]
+[ext_resource type="Texture2D" uid="uid://bfkhblg4nebv4" path="res://buttons/book-hover.png" id="8_adyrf"]
+[ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="10_6i546"]
+[ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="11_mhcj4"]
+
+[node name="submenu-playmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_peucw")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="bg" type="ColorRect" parent="background"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.384314, 0, 0, 1)
+
+[node name="Background-dealer" type="Sprite2D" parent="background"]
+position = Vector2(574, 541)
+scale = Vector2(5.06675, 2.092)
+texture = ExtResource("2_vqhpy")
+
+[node name="Background-dealer2" type="Sprite2D" parent="background"]
+position = Vector2(567.2, 295.00006)
+rotation = -3.14159
+scale = Vector2(5.09563, 1.79688)
+texture = ExtResource("2_vqhpy")
+
+[node name="Background-dealer3" type="Sprite2D" parent="background"]
+position = Vector2(565, 46)
+scale = Vector2(5.0589375, 2.092)
+texture = ExtResource("2_vqhpy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(574, 230)
+scale = Vector2(3, 3)
+texture = ExtResource("5_bspxi")
+
+[node name="left" type="CPUParticles2D" parent="."]
+position = Vector2(569, 196)
+amount = 50
+lifetime = 0.7
+emission_shape = 5
+emission_points = PackedVector2Array()
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+gravity = Vector2(-980, 0)
+angular_velocity_min = 40.7
+angular_velocity_max = 40.7
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+color = Color(0.62557507, 1.4318898e-06, 5.7756904e-07, 1)
+
+[node name="right" type="CPUParticles2D" parent="."]
+position = Vector2(569, 196)
+amount = 50
+lifetime = 0.7
+emission_shape = 5
+emission_points = PackedVector2Array()
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+gravity = Vector2(980, 0)
+angular_velocity_min = 40.7
+angular_velocity_max = 40.7
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+color = Color(0.62557507, 1.4318898e-06, 5.7756904e-07, 1)
+
+[node name="down" type="CPUParticles2D" parent="."]
+position = Vector2(569, 196)
+amount = 100
+lifetime = 0.9
+emission_shape = 5
+emission_points = PackedVector2Array()
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+angular_velocity_min = 40.7
+angular_velocity_max = 40.7
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+color = Color(0.62557507, 1.4318898e-06, 5.7756904e-07, 1)
+
+[node name="endless" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 770.00006
+offset_top = 153.00002
+offset_right = 850.00006
+offset_bottom = 185.00002
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("3_mlnmf")
+texture_hover = ExtResource("4_adyrf")
+texture_focused = ExtResource("4_adyrf")
+
+[node name="bosses" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 162.00002
+offset_right = 243.0
+offset_bottom = 194.00002
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("5_e7xsi")
+texture_hover = ExtResource("6_gab71")
+texture_focused = ExtResource("6_gab71")
+
+[node name="go_to_book" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 519.00006
+offset_right = 550.0
+offset_bottom = 551.00006
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("7_mlnmf")
+texture_hover = ExtResource("8_adyrf")
+texture_focused = ExtResource("8_adyrf")
+
+[node name="go away" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 469.00003
+offset_top = 11.0
+offset_right = 549.0
+offset_bottom = 43.0
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("10_6i546")
+texture_hover = ExtResource("11_mhcj4")
+texture_focused = ExtResource("11_mhcj4")
+
+[connection signal="pressed" from="endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="bosses" to="." method="_on_bosses_pressed"]
+[connection signal="pressed" from="go_to_book" to="." method="_on_go_to_book_pressed"]
+[connection signal="pressed" from="go away" to="." method="_on_go_away_pressed"]

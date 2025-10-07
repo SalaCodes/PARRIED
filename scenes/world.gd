@@ -42,7 +42,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if credits:
-		if !Credits.showcredits:
+		if !Settings.showcredits:
 			credits.visible = false
 		else:
 			credits.visible = true

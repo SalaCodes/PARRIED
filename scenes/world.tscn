@@ -1,17 +1,16 @@
-[gd_scene load_steps=38 format=3 uid="uid://bv2wowdovf3o"]
+[gd_scene load_steps=40 format=3 uid="uid://bv2wowdovf3o"]
 
 [ext_resource type="Script" uid="uid://bkw17iiipysyq" path="res://scenes/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_f3sb7"]
-[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="2_7t5mc"]
-[ext_resource type="Script" uid="uid://boso1gh52ho23" path="res://scenes/canvas_debug.gd" id="2_lakw3"]
-[ext_resource type="Script" uid="uid://diiyu53vegtxm" path="res://scenes/canvas_layer.gd" id="2_q5onr"]
+[ext_resource type="PackedScene" uid="uid://ctdys35xiy4kj" path="res://canvasstuff/canvas_debug.tscn" id="2_lakw3"]
+[ext_resource type="PackedScene" uid="uid://clu10t8lvdn2g" path="res://canvasstuff/canvas_pause.tscn" id="3_7t5mc"]
 [ext_resource type="Texture2D" uid="uid://bqf7v1qb6cafa" path="res://assets/bullet.png" id="4_71j4m"]
 [ext_resource type="Texture2D" uid="uid://d378hlsvhpdy2" path="res://assets/mapdeco.png" id="4_k0juu"]
 [ext_resource type="Script" uid="uid://dbhbjpkqalqmk" path="res://scenes/upgrades.gd" id="5_71j4m"]
 [ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="5_dss4m"]
 [ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="6_i7141"]
 [ext_resource type="Resource" uid="uid://05pkgyprt1x7" path="res://upgrade/upgrades/giveparriesfordmg.tres" id="7_4mrxx"]
-[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/bulletsbutheal.tres" id="8_4mrxx"]
+[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/more_bullets.tres" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://dlaivi1x1jqx4" path="res://upgrade/upgrades/healchance.tres" id="9_7r4gi"]
 [ext_resource type="Resource" uid="uid://5x7jpfi8n13f" path="res://upgrade/upgrades/doubletrouble.tres" id="10_w7kh3"]
 [ext_resource type="Resource" uid="uid://dbetnuf0iobo6" path="res://upgrade/upgrades/prayedfast.tres" id="11_e3hyu"]
@@ -130,22 +129,43 @@ _data = {
 &"potato": SubResource("Animation_e3hyu")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lakw3"]
 atlas = ExtResource("4_71j4m")
-region = Rect2(0, 0, 64, 32)
+region = Rect2(0, 0, 53, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pm21f"]
 atlas = ExtResource("4_71j4m")
-region = Rect2(64, 0, 64, 32)
+region = Rect2(53, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lf6f"]
+atlas = ExtResource("4_71j4m")
+region = Rect2(106, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iits"]
+atlas = ExtResource("4_71j4m")
+region = Rect2(159, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo54l"]
+atlas = ExtResource("4_71j4m")
+region = Rect2(212, 0, 53, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qfnet"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y25gk")
+"texture": SubResource("AtlasTexture_lakw3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5glv")
+"texture": SubResource("AtlasTexture_pm21f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lf6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iits")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo54l")
 }],
 "loop": true,
 "name": &"default",
@@ -555,87 +575,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mrxx"]
 radius = 352.751
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" groups=["game"]]
 script = ExtResource("1_4wyf3")
 
-[node name="canvasDebug" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("2_lakw3")
+[node name="canvasDebug" parent="." instance=ExtResource("2_lakw3")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="canvasDebug"]
-process_mode = 3
-offset_left = 3.0
-offset_right = 1154.0
-offset_bottom = 649.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("2_7t5mc")
-text = "DEBUG:
-
-speed:
-next upgrade:
-health: 
-max health:
-parries:
-chosen upgrades:
-upgrades: 
-souls: "
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-layer = 4
-visible = false
-script = ExtResource("2_q5onr")
-
-[node name="PAUSE MENU" type="Control" parent="CanvasLayer"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PAUSE MENU"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PAUSE MENU/HBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("5_dss4m")
-theme_override_fonts/font = ExtResource("2_7t5mc")
-theme_override_font_sizes/font_size = 35
-text = "PAUSED"
-horizontal_alignment = 1
-
-[node name="continue" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "CONTINUE"
-
-[node name="go_back" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "GO TO TITLE"
-
-[node name="quit" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "QUIT"
+[node name="CanvasPause" parent="." instance=ExtResource("3_7t5mc")]
 
 [node name="playerspawn" type="Marker2D" parent="."]
 position = Vector2(551, 300)
@@ -889,20 +834,7 @@ text = "NO UPGRADES"
 
 [node name="player" parent="." instance=ExtResource("1_f3sb7")]
 position = Vector2(551, 300)
-SPEED = 0
-start = false
-parries = 0
-upgradesChosen = 0
-dash_cooldown = 31
-dash_speed = 8000.0
-upgradedgpfd = false
-secondshield = false
-upgradeDash = false
-upgradehealer = false
 
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/continue" to="CanvasLayer" method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/go_back" to="CanvasLayer" method="_on_go_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="forplayanimation/skip" to="." method="_on_skip_pressed"]
 [connection signal="body_entered" from="upgrades/Area2D" to="upgrades" method="_on_area_2d_body_entered"]

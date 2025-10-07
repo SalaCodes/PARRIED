@@ -18,12 +18,14 @@ extends CanvasLayer
 func _process(delta: float) -> void:
 	
 	if player:
+		await get_tree().process_frame
 		speed = player.SPEED
-		next_upgrade = upgrades_node.milestone - player.parries
+		if upgrades_node:
+			next_upgrade = upgrades_node.milestone - player.parries
+			upgrade = player.upgradesChosen
 		health = player.health
 		max_health = player.max_health
 		parries = player.parries
-		upgrade = player.upgradesChosen
 		souls = SoulsHandler.souls
 		
 		

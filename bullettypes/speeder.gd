@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var SPEED = 500
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,10 +10,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $"..".name == "world" or $"..".name == "THE LIGHTS OF HELL":
-		var player: CharacterBody2D = $"../player"
-		look_at(player.global_position)
-		position += transform.x * SPEED * delta
+	var player: CharacterBody2D = $"../player"
+	look_at(player.global_position)
+	position += transform.x * SPEED * delta
+	if global_rotation >= 180:
+		animated_sprite_2d.flip_h = true
+	else:
+		animated_sprite_2d.flip_h = false
+
 
 
 

@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://c55msuqcgcm6b"]
+
+[ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
+[ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
+[ext_resource type="Texture2D" uid="uid://gx77pjyaf30u" path="res://buttons/gamble-hover.png" id="3_k77mw"]
+[ext_resource type="Texture2D" uid="uid://yaa48fwsrero" path="res://assets/hand-dealer.png" id="4_k77mw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x841i"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhbw6"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(128, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0uha"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(256, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxb3w"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(384, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s0uq"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(512, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdxhv"]
+atlas = ExtResource("4_k77mw")
+region = Rect2(640, 64, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ftwen"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x841i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhbw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0uha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxb3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s0uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdxhv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="casino" type="Node2D"]
+script = ExtResource("1_yq41b")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="gamble_text" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "GAMBLE GAMBLE"
+
+[node name="dealer_text" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="gamble" type="TextureButton" parent="."]
+offset_left = 470.0
+offset_top = 354.0
+offset_right = 659.0
+offset_bottom = 430.0
+texture_normal = ExtResource("2_ftwen")
+texture_hover = ExtResource("3_k77mw")
+texture_focused = ExtResource("3_k77mw")
+stretch_mode = 4
+
+[node name="hand" type="AnimatedSprite2D" parent="."]
+position = Vector2(211, 691)
+sprite_frames = SubResource("SpriteFrames_ftwen")
+frame = 4
+frame_progress = 0.15683119
+
+[connection signal="pressed" from="gamble" to="." method="_on_gamble_pressed"]

@@ -25,11 +25,12 @@ config/windows_native_icon="res://icon/icon.ico"
 [autoload]
 
 Sounds="*res://autoloads/sounds.tscn"
-Death="*res://death.gd"
-SoulsHandler="*res://souls_handler.gd"
-GlobalSignals="*res://global_signals.gd"
-Credits="*res://credits.gd"
-Characters="*res://characters.gd"
+Death="*res://autoloads/death.gd"
+SoulsHandler="*res://autoloads/souls_handler.gd"
+GlobalSignals="*res://autoloads/global_signals.gd"
+Settings="*res://autoloads/settings.gd"
+Characters="*res://autoloads/characters.gd"
+Cursor="*res://autoloads/cursor.tscn"
 
 [debug]
 
@@ -55,8 +56,9 @@ helper=""
 upgrader=""
 b=""
 looker=""
-BOSS=""
 HEART=""
+game=""
+BOSS=""
 
 [input]
 

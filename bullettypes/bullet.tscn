@@ -1,24 +1,45 @@
-[gd_scene load_steps=8 format=3 uid="uid://7xc41vuhk1bn"]
+[gd_scene load_steps=11 format=3 uid="uid://7xc41vuhk1bn"]
 
 [ext_resource type="Texture2D" uid="uid://bqf7v1qb6cafa" path="res://assets/bullet.png" id="1_mkf8s"]
-[ext_resource type="Script" uid="uid://g5xqrtxtx71n" path="res://fonts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://g5xqrtxtx71n" path="res://bullettypes/bullet.gd" id="1_y25gk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y25gk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qamkl"]
 atlas = ExtResource("1_mkf8s")
-region = Rect2(0, 0, 64, 32)
+region = Rect2(0, 0, 53, 23)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5glv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k52pf"]
 atlas = ExtResource("1_mkf8s")
-region = Rect2(64, 0, 64, 32)
+region = Rect2(53, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksljx"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(106, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7n7"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(159, 0, 53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m3pb"]
+atlas = ExtResource("1_mkf8s")
+region = Rect2(212, 0, 53, 23)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eoqba"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y25gk")
+"texture": SubResource("AtlasTexture_qamkl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l5glv")
+"texture": SubResource("AtlasTexture_k52pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksljx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k7n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m3pb")
 }],
 "loop": true,
 "name": &"default",
@@ -26,23 +47,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
-size = Vector2(70, 31)
+size = Vector2(94, 31)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y25gk"]
-radius = 16.0
-height = 66.0
+radius = 24.999992
+height = 110.0
 
 [node name="bullet" type="StaticBody2D" groups=["b", "bullet"]]
 collision_layer = 2
 script = ExtResource("1_y25gk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_eoqba")
 autoplay = "default"
-frame_progress = 0.921016
+frame_progress = 0.94704145
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -0.5)
+position = Vector2(6, -0.5)
 shape = SubResource("RectangleShape2D_mkf8s")
 
 [node name="Area2D" type="Area2D" parent="."]

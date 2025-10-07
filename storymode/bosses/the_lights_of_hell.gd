@@ -38,15 +38,16 @@ func _ready():
 	healthbar.min_value = 0
 	healthbar.max_value = BOSSHEALTH
 	healthbar.value = BOSSHEALTH
-
+	
 	var h = heart.instantiate() as heart
 	add_child(h)
 	var viewport_size = get_viewport_rect().size
+	var heart_size = h.get_node("Sprite2D").texture.get_size()
+	
 	var rand_y = randi() % int(viewport_size.y)
-	h.position = Vector2(
-		randi() % int(viewport_size.x),
-		clamp(rand_y, 0, 120)
-	)
+	h.position.y = clamp(rand_y, 0, 140)
+	
+	h.position.x = randf_range(heart_size.x / 2, viewport_size.x - heart_size.x / 2)
 	h.add_second_point(heartconnector.position)
 	
 	Sounds.uncalm_music()
@@ -134,3 +135,12 @@ func spawn_bullet(b):
 func damage(amount: int):
 	BOSSHEALTH = max(BOSSHEALTH - amount, 0)
 	healthbar.value = BOSSHEALTH
+	var h = heart.instantiate() as heart
+	call_deferred("add_child", h)
+	var viewport_size = get_viewport_rect().size
+	var rand_y = randi() % int(viewport_size.y)
+	h.position = Vector2(
+		randi() % int(viewport_size.x),
+		clamp(rand_y, 0, 140)
+	)
+	h.add_second_point(heartconnector.position)

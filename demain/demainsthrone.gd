@@ -112,7 +112,12 @@ func _on_timer_timeout() -> void:
 			7:
 				demainspeech.text = "[color=#0c008c]Pressure?[/color] Like when I push something?"
 				show_next_letter()
+			8:
+				demainspeech.text = "You like my [color=#ff0000]bullets?[/color] I hand crafted the looker ones...."
+				show_next_letter()
+			9:
+				demainspeech.text = "I made a robot..... [color=#ff0000]dem_ai_n[/color]........ it'll kill you DEFINITELY."
+				show_next_letter()
 
-
-func _on_button_pressed() -> void:
+func _on_go_away_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")

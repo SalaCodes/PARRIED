@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c631d2x20vefh"]
+
+[ext_resource type="Script" uid="uid://cixjijdqn8qcl" path="res://demain/demaintrailer.gd" id="1_08vum"]
+[ext_resource type="Texture2D" uid="uid://cab0a3va05pu3" path="res://demain/wall.png" id="2_g7xta"]
+[ext_resource type="Texture2D" uid="uid://ddt6qhdnjv3ou" path="res://demain/demain.png" id="3_0jvoa"]
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="4_asnfe"]
+[ext_resource type="AudioStream" uid="uid://bv00kr4arethq" path="res://sounds/talk_demain.wav" id="5_obi4v"]
+
+[node name="demainsthrone" type="Node2D"]
+script = ExtResource("1_08vum")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 1189.0
+offset_bottom = 754.0
+color = Color(0.533325, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="demain" type="Sprite2D" parent="."]
+position = Vector2(558, 247)
+scale = Vector2(2, 2)
+texture = ExtResource("3_0jvoa")
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(589, 473.5)
+scale = Vector2(2.515625, 1.5)
+texture = ExtResource("2_g7xta")
+
+[node name="demainspeech" type="RichTextLabel" parent="."]
+offset_left = 28.0
+offset_top = 498.0
+offset_right = 1125.0
+offset_bottom = 641.0
+theme_override_fonts/normal_font = ExtResource("4_asnfe")
+bbcode_enabled = true
+text = "hello.... pathetic citizen"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_obi4v")
+pitch_scale = 1.41
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

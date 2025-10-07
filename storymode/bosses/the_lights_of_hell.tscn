@@ -1,15 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://bw7diywdpupwa"]
+[gd_scene load_steps=25 format=3 uid="uid://bw7diywdpupwa"]
 
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_4c3rm"]
 [ext_resource type="Script" uid="uid://bjr2ipfgednri" path="res://storymode/bosses/the_lights_of_hell.gd" id="1_w4it6"]
-[ext_resource type="Script" uid="uid://boso1gh52ho23" path="res://scenes/canvas_debug.gd" id="2_uuq1w"]
+[ext_resource type="PackedScene" uid="uid://clu10t8lvdn2g" path="res://canvasstuff/canvas_pause.tscn" id="2_uuq1w"]
 [ext_resource type="Texture2D" uid="uid://b0ki4dqs3xuij" path="res://assets/thelightofdeath.png" id="3_hp4xq"]
-[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_l3lqn"]
-[ext_resource type="Script" uid="uid://diiyu53vegtxm" path="res://scenes/canvas_layer.gd" id="4_kh0ji"]
+[ext_resource type="PackedScene" uid="uid://ctdys35xiy4kj" path="res://canvasstuff/canvas_debug.tscn" id="3_l3lqn"]
 [ext_resource type="Script" uid="uid://dbhbjpkqalqmk" path="res://scenes/upgrades.gd" id="4_xwxy2"]
 [ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="5_j375m"]
 [ext_resource type="Resource" uid="uid://05pkgyprt1x7" path="res://upgrade/upgrades/giveparriesfordmg.tres" id="6_iper8"]
-[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/bulletsbutheal.tres" id="7_uuq1w"]
+[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/more_bullets.tres" id="7_uuq1w"]
 [ext_resource type="Resource" uid="uid://dlaivi1x1jqx4" path="res://upgrade/upgrades/healchance.tres" id="8_l3lqn"]
 [ext_resource type="Resource" uid="uid://5x7jpfi8n13f" path="res://upgrade/upgrades/doubletrouble.tres" id="9_kh0ji"]
 [ext_resource type="Resource" uid="uid://dbetnuf0iobo6" path="res://upgrade/upgrades/prayedfast.tres" id="10_727vf"]
@@ -155,87 +154,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xxn5x"]
 radius = 352.751
 
-[node name="THE LIGHTS OF HELL" type="Node2D"]
+[node name="THE LIGHTS OF HELL" type="Node2D" groups=["BOSS", "game"]]
 script = ExtResource("1_w4it6")
 
-[node name="canvasDebug" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("2_uuq1w")
+[node name="CanvasPause" parent="." instance=ExtResource("2_uuq1w")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="canvasDebug"]
-process_mode = 3
-offset_left = 3.0
-offset_right = 1154.0
-offset_bottom = 649.0
-mouse_filter = 2
-theme_override_fonts/normal_font = ExtResource("3_l3lqn")
-text = "DEBUG:
-
-speed:
-next upgrade:
-health: 
-max health:
-parries:
-chosen upgrades:
-upgrades: 
-souls: "
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-layer = 4
-visible = false
-script = ExtResource("4_kh0ji")
-
-[node name="PAUSE MENU" type="Control" parent="CanvasLayer"]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PAUSE MENU"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PAUSE MENU/HBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("14_ycrg2")
-theme_override_fonts/font = ExtResource("3_l3lqn")
-theme_override_font_sizes/font_size = 35
-text = "PAUSED"
-horizontal_alignment = 1
-
-[node name="continue" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "CONTINUE"
-
-[node name="go_back" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "GO TO TITLE"
-
-[node name="quit" type="Button" parent="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer"]
-process_mode = 3
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-text = "QUIT"
+[node name="canvasDebug" parent="." instance=ExtResource("3_l3lqn")]
 
 [node name="CanvasBoss" type="CanvasLayer" parent="."]
 
@@ -484,9 +408,6 @@ position = Vector2(1230, 417)
 [node name="heartconnector" type="Marker2D" parent="."]
 position = Vector2(569, 97)
 
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/continue" to="CanvasLayer" method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/go_back" to="CanvasLayer" method="_on_go_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/PAUSE MENU/HBoxContainer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_2_body_entered"]
