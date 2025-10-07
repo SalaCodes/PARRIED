@@ -3,9 +3,9 @@ extends Control
 @onready var gamble_text: Label = $gamble_text
 @onready var dealer_text: RichTextLabel = $dealer_text
 @onready var gamble: TextureButton = $gamble
-@onready var animation_player: AnimationPlayer = $hand_animation
+@onready var hand_animation: AnimationPlayer = $hand_animation
 @onready var hand: AnimatedSprite2D = $hand
-@onready var audio_player: AudioStreamPlayer = $sfx
+@onready var sfx: AudioStreamPlayer = $sfx
 @onready var music: AudioStreamPlayer = $music
 @onready var souls_animation: AnimationPlayer = $souls_animation
 @onready var souls_label_gamble: Label = $souls_label_gamble
@@ -172,7 +172,7 @@ func dealer_texts():
 
 
 func play_hand():
-	animation_player.play("hand")
+	hand_animation.play("hand")
 	await get_tree().create_timer(1).timeout
 	hand.play("default")
 
@@ -180,7 +180,7 @@ func play_hand():
 func _on_go_away_pressed() -> void:
 	gamble.disabled = true
 	go_away.disabled = true
-	animation_player.play("leave")
+	hand_animation.play("leave")
 	dealer_text.position.y -= 250
 	dealer_text.text = "Going away already? Now I have to put everything away..."
 	show_next_letter()
@@ -205,8 +205,8 @@ func show_next_letter(speed := 0.06):
 
 	for i in range(total_chars):
 		dealer_text.visible_ratio = (i + 1) * reveal_step
-		audio_player.stop()
-		audio_player.play()
+		sfx.stop()
+		sfx.play()
 		await get_tree().create_timer(speed).timeout
 
 	go_away.disabled = false

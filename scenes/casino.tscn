@@ -1,12 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=26 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
 [ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
 [ext_resource type="Texture2D" uid="uid://gx77pjyaf30u" path="res://buttons/gamble-hover.png" id="3_k77mw"]
 [ext_resource type="Texture2D" uid="uid://yaa48fwsrero" path="res://assets/hand-dealer.png" id="4_k77mw"]
+[ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="5_lqqel"]
+[ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="6_1y6yl"]
 [ext_resource type="AudioStream" uid="uid://da5w6c2ojnlu0" path="res://music/Lightless Dawn.mp3" id="6_vhbw6"]
 [ext_resource type="AudioStream" uid="uid://67spxvb2odwq" path="res://sounds/talk_dealer.wav" id="7_a0uha"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="9_qcp6i"]
+[ext_resource type="Texture2D" uid="uid://crtxdhdcf8dwi" path="res://assets/soul-sheet.png" id="10_kdxhv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x841i"]
 atlas = ExtResource("4_k77mw")
@@ -57,6 +60,102 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788t5"]
+atlas = ExtResource("10_kdxhv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfu5g"]
+atlas = ExtResource("10_kdxhv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txr6g"]
+atlas = ExtResource("10_kdxhv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af3b0"]
+atlas = ExtResource("10_kdxhv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xy2ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfu5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txr6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af3b0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kdxhv"]
+resource_name = "souls"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("souls_label_gamble:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.928172, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("souls_label_gamble:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4506253, 1),
+"update": 0,
+"values": [Vector2(461, 324), Vector2(461, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_788t5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("souls_label_gamble:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("souls_label_gamble:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(461, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_788t5"]
+_data = {
+&"RESET": SubResource("Animation_788t5"),
+&"souls": SubResource("Animation_kdxhv")
+}
 
 [node name="casino" type="Control"]
 layout_mode = 3
@@ -117,8 +216,56 @@ stream = ExtResource("7_a0uha")
 
 [node name="current_character" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 8.0
+offset_top = 611.0
+offset_right = 304.0
+offset_bottom = 639.0
+theme_override_fonts/font = ExtResource("9_qcp6i")
 text = "CURRENT CHARACTER: "
 
+[node name="go away" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 233.0
+offset_bottom = 105.0
+texture_normal = ExtResource("5_lqqel")
+texture_hover = ExtResource("6_1y6yl")
+texture_focused = ExtResource("6_1y6yl")
+stretch_mode = 4
+
+[node name="souls_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 29.0
+offset_right = 1084.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("9_qcp6i")
+theme_override_font_sizes/font_size = 21
+text = "99999999"
+horizontal_alignment = 2
+
+[node name="souls" type="AnimatedSprite2D" parent="."]
+position = Vector2(1116, 44)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xy2ko")
+autoplay = "default"
+
+[node name="souls_label_gamble" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 461.0
+offset_top = 324.0
+offset_right = 501.0
+offset_bottom = 352.00015
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("9_qcp6i")
+text = "-50"
+
+[node name="souls_animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_788t5")
+}
+
 [connection signal="pressed" from="gamble" to="." method="_on_gamble_pressed"]
+[connection signal="pressed" from="go away" to="." method="_on_go_away_pressed"]
