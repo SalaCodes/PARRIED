@@ -178,13 +178,6 @@ func play_hand():
 
 
 func _on_go_away_pressed() -> void:
-	gamble.disabled = true
-	go_away.disabled = true
-	hand_animation.play("leave")
-	dealer_text.position.y -= 250
-	dealer_text.text = "Going away already? Now I have to put everything away..."
-	show_next_letter()
-	await get_tree().create_timer(4).timeout
 	music.stop()
 	Sounds.music.stream_paused = false
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
