@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=31 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
+[ext_resource type="Texture2D" uid="uid://wrcvnn6tmwmq" path="res://assets/dealer.png" id="2_af3b0"]
 [ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
 [ext_resource type="Texture2D" uid="uid://gx77pjyaf30u" path="res://buttons/gamble-hover.png" id="3_k77mw"]
 [ext_resource type="Texture2D" uid="uid://yaa48fwsrero" path="res://assets/hand-dealer.png" id="4_k77mw"]
@@ -318,6 +319,11 @@ offset_right = 1189.0
 offset_bottom = 754.0
 color = Color(0.533325, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Dealer" type="Sprite2D" parent="."]
+position = Vector2(541, 399)
+scale = Vector2(5, 5)
+texture = ExtResource("2_af3b0")
 
 [node name="dealer_text" type="RichTextLabel" parent="."]
 layout_mode = 0
