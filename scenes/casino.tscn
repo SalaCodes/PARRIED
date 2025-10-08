@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=30 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
 [ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://67spxvb2odwq" path="res://sounds/talk_dealer.wav" id="7_a0uha"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="9_qcp6i"]
 [ext_resource type="Texture2D" uid="uid://crtxdhdcf8dwi" path="res://assets/soul-sheet.png" id="10_kdxhv"]
-[ext_resource type="Texture2D" uid="uid://poutlrivx0a3" path="res://assets/slotmachine.png" id="11_788t5"]
+[ext_resource type="Texture2D" uid="uid://c7gtn4vk0sklq" path="res://assets/slotmachine-sheet.png" id="10_txr6g"]
 [ext_resource type="Texture2D" uid="uid://cnet572oe2vea" path="res://assets/lever/lever-base.png" id="12_dfu5g"]
 [ext_resource type="Texture2D" uid="uid://b15p8vh3a3x1t" path="res://assets/lever/lever.png" id="13_txr6g"]
 
@@ -50,33 +50,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_kdxhv"]
-resource_name = "souls"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("souls_label_gamble:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2.928172, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("souls_label_gamble:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.4506253, 1),
-"update": 0,
-"values": [Vector2(461, 324), Vector2(461, 200)]
-}
-
 [sub_resource type="Animation" id="Animation_788t5"]
 length = 0.001
 tracks/0/type = "value"
@@ -104,38 +77,37 @@ tracks/1/keys = {
 "values": [Vector2(461, 324)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_788t5"]
-_data = {
-&"RESET": SubResource("Animation_788t5"),
-&"souls": SubResource("Animation_kdxhv")
-}
-
-[sub_resource type="Animation" id="Animation_txr6g"]
-resource_name = "hand"
-length = 8.0
+[sub_resource type="Animation" id="Animation_kdxhv"]
+resource_name = "souls"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("hand:position")
+tracks/0/path = NodePath("souls_label_gamble:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.2, 2.2333333, 3.01),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.928172, 1),
 "update": 0,
-"values": [Vector2(211, 691), Vector2(550, 500), Vector2(650, 500), Vector2(211, 691)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Lever:rotation")
-tracks/1/interp = 3
+tracks/1/path = NodePath("souls_label_gamble:position")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.01, 2.03),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4506253, 1),
 "update": 0,
-"values": [-0.5323254218582705, -0.5323254218582705, 0.5323254218582705]
+"values": [Vector2(461, 324), Vector2(461, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_788t5"]
+_data = {
+&"RESET": SubResource("Animation_788t5"),
+&"souls": SubResource("Animation_kdxhv")
 }
 
 [sub_resource type="Animation" id="Animation_af3b0"]
@@ -164,12 +136,126 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slotmachine:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slotmachine:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_txr6g"]
+resource_name = "hand"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.2, 2.9666667),
+"transitions": PackedFloat32Array(2.0000002, 0.46651652, 2.8284273, 1.2311445),
+"update": 0,
+"values": [Vector2(211, 691), Vector2(550, 500), Vector2(650, 500), Vector2(211, 691)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lever:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01, 2.03, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.5323254218582705, -0.5323254218582705, 0.5323254218582705, -0.5323254218582705]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slotmachine:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.7, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"default", &"spin", &"default"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Slotmachine:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.1333334, 4.8333335, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 2.0, 3.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_xy2ko"]
+resource_name = "won"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af3b0"]
 _data = {
 &"RESET": SubResource("Animation_af3b0"),
-&"hand": SubResource("Animation_txr6g")
+&"hand": SubResource("Animation_txr6g"),
+&"won": SubResource("Animation_xy2ko")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy2ko"]
+atlas = ExtResource("10_txr6g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgvfs"]
+atlas = ExtResource("10_txr6g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqqel"]
+atlas = ExtResource("10_txr6g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgvfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy2ko")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgvfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqqel")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
 
 [node name="casino" type="Control"]
 layout_mode = 3
@@ -270,10 +356,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_af3b0")
 }
 
-[node name="Slotmachine" type="Sprite2D" parent="."]
+[node name="Slotmachine" type="AnimatedSprite2D" parent="."]
 position = Vector2(918, 477)
 scale = Vector2(8, 8)
-texture = ExtResource("11_788t5")
+sprite_frames = SubResource("SpriteFrames_wgvfs")
+autoplay = "default"
+frame_progress = 0.9752622
 
 [node name="LeverBase" type="Sprite2D" parent="."]
 position = Vector2(595, 558)
