@@ -11,6 +11,12 @@ extends Control
 @onready var souls_label: Label = $souls_label
 @onready var current_character: Label = $current_character
 @onready var go_away: TextureButton = $"go away"
+@onready var character: Sprite2D = $character
+
+const ARMORED_PLAYER = preload("uid://b33u165phokk8")
+const CAT_PLAYER = preload("uid://b51j7ky4sdqjo")
+const DEMON = preload("uid://f4sp08rluvh")
+const PLAYER = preload("uid://bohhkpcjq3rwb")
 
 var pressure_font: FontFile = preload("res://fonts/pressure_font.ttf")
 
@@ -69,7 +75,23 @@ func _on_gamble_pressed() -> void:
 			souls_label_gamble.text = "+50 souls"
 			SoulsHandler.souls += 50
 		else:
-			# ADDDDDDDDDDDDDDDDDDDDDDD
+			match Characters.chosen_character["skin"]:
+				"default":
+					dealer_text.text = "huh..... this one is the mere basics...."
+					show_next_letter()
+				"cat":
+					dealer_text.text = "9 max health and health... faster... can't get extra max health.... I think?"
+					show_next_letter()
+					if !gamble.disabled:
+						dealer_text.text = "I don't know why i sell this one..."
+						show_next_letter()
+				"armored":
+					dealer_text.text = "15 health... but slow as f__k"
+					show_next_letter()
+				"demon":
+					dealer_text.text = "ONE OF US!"
+					show_next_letter()
+			
 			if gambled_character == Characters.chosen_character:
 				souls_animation.play("souls")
 				souls_label_gamble.text = "+20 souls"
