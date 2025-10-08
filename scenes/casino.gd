@@ -57,25 +57,29 @@ func _on_gamble_pressed() -> void:
 		souls_label_gamble.text = "-50 souls"
 		SoulsHandler.souls -= 50
 		play_hand()
-		await hand_animation.animation_finished
 		randomnumber = randi_range(0, Characters.characters.size() - 1)
 		
 		gambled_character = Characters.characters.get(randomnumber)
+		
+		match gambled_character["skin"]:
+			"default":
+				character.texture = PLAYER
+			"cat":
+				character.texture = CAT_PLAYER
+			"armored":
+				character.texture = ARMORED_PLAYER
+			"demon":
+				character.texture = DEMON
+		
+		await hand_animation.animation_finished
+		
+		
 		if !gambled_character:
 			dealer_text.text = "something went wrong..... giving souls back...."
 			souls_animation.play("souls")
 			souls_label_gamble.text = "+50 souls"
 			SoulsHandler.souls += 50
 		else:
-			match Characters.chosen_character["skin"]:
-				"default":
-					character.texture = PLAYER
-				"cat":
-					character.texture = CAT_PLAYER
-				"armored":
-					character.texture = ARMORED_PLAYER
-				"demon":
-					character.texture = DEMON
 			
 			
 			
