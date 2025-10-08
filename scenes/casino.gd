@@ -21,7 +21,6 @@ const PLAYER = preload("uid://bohhkpcjq3rwb")
 var pressure_font: FontFile = preload("res://fonts/pressure_font.ttf")
 
 
-var gamble_time = .5
 var gambled_character
 var randomnumber
 
@@ -58,15 +57,8 @@ func _on_gamble_pressed() -> void:
 		souls_label_gamble.text = "-50 souls"
 		SoulsHandler.souls -= 50
 		play_hand()
-		await get_tree().create_timer(1).timeout
-		for i in range(1, 6):
-			for upgrades in Characters.characters:
-				# ADDDDDDDDDDDDDDDDDDDDDDD
-				await get_tree().create_timer(gamble_time).timeout
-				gamble_time -= .05
-		
+		await hand_animation.animation_finished
 		randomnumber = randi_range(0, Characters.characters.size() - 1)
-		gamble_time = .5
 		
 		gambled_character = Characters.characters.get(randomnumber)
 		if !gambled_character:
@@ -77,20 +69,15 @@ func _on_gamble_pressed() -> void:
 		else:
 			match Characters.chosen_character["skin"]:
 				"default":
-					dealer_text.text = "huh..... this one is the mere basics...."
-					show_next_letter()
+					character.texture = PLAYER
 				"cat":
-					dealer_text.text = "9 max health and health... faster... can't get extra max health.... I think?"
-					show_next_letter()
-					if !gamble.disabled:
-						dealer_text.text = "I don't know why i sell this one..."
-						show_next_letter()
+					character.texture = CAT_PLAYER
 				"armored":
-					dealer_text.text = "15 health... but slow as f__k"
-					show_next_letter()
+					character.texture = ARMORED_PLAYER
 				"demon":
-					dealer_text.text = "ONE OF US!"
-					show_next_letter()
+					character.texture = DEMON
+			
+			
 			
 			if gambled_character == Characters.chosen_character:
 				souls_animation.play("souls")
@@ -101,6 +88,8 @@ func _on_gamble_pressed() -> void:
 			else:
 				Characters.chosen_character = gambled_character
 				Characters.save_chosen_character(gambled_character["skin"])
+				
+				
 				
 				match Characters.chosen_character["skin"]:
 					"default":
@@ -192,8 +181,8 @@ func dealer_texts():
 
 func play_hand():
 	hand_animation.play("hand")
-	await get_tree().create_timer(1).timeout
-	hand.play("default")
+	await hand_animation.animation_finished
+	hand_animation.play("won")
 
 
 func _on_go_away_pressed() -> void:
