@@ -9,7 +9,8 @@ var showparticles = Settings.particles
 
 func _ready() -> void:
 	# INITIALIZE BUTTONS
-	
+	credits.button_pressed = showcredits
+	particles.button_pressed = showparticles
 
 
 func _process(delta: float) -> void:
