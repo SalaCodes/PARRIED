@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=33 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
 [ext_resource type="Texture2D" uid="uid://wrcvnn6tmwmq" path="res://assets/dealer.png" id="2_af3b0"]
 [ext_resource type="Texture2D" uid="uid://colit6c1sap0i" path="res://buttons/gamble-normal.png" id="2_ftwen"]
+[ext_resource type="Texture2D" uid="uid://b8v8v2y574w3i" path="res://assets/background-dealer.png" id="2_wgvfs"]
 [ext_resource type="Texture2D" uid="uid://gx77pjyaf30u" path="res://buttons/gamble-hover.png" id="3_k77mw"]
 [ext_resource type="Texture2D" uid="uid://yaa48fwsrero" path="res://assets/hand-dealer.png" id="4_k77mw"]
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="5_lqqel"]
@@ -312,14 +313,30 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yq41b")
 
-[node name="bg" type="ColorRect" parent="."]
-layout_mode = 0
+[node name="background" type="Node2D" parent="."]
+
+[node name="bg" type="ColorRect" parent="background"]
 offset_left = -83.0
 offset_top = -60.0
 offset_right = 1189.0
 offset_bottom = 754.0
-color = Color(0.533325, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+color = Color(0.384314, 0, 0, 1)
+
+[node name="Background-dealer" type="Sprite2D" parent="background"]
+position = Vector2(578, 539)
+scale = Vector2(5.821, 2.092)
+texture = ExtResource("2_wgvfs")
+
+[node name="Background-dealer2" type="Sprite2D" parent="background"]
+position = Vector2(578, 291)
+rotation = -3.14159
+scale = Vector2(5.82059, 1.79688)
+texture = ExtResource("2_wgvfs")
+
+[node name="Background-dealer3" type="Sprite2D" parent="background"]
+position = Vector2(578, 43)
+scale = Vector2(5.821, 2.092)
+texture = ExtResource("2_wgvfs")
 
 [node name="Dealer" type="Sprite2D" parent="."]
 position = Vector2(542, 330)
