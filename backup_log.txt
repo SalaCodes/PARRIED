@@ -696,3 +696,16 @@ To https://github.com/SalaCodes/PARRIED
 ============================
 ============================
 Backup started: 2025-10-09 14:50:01
+[hallo b176f4a] Auto-backup: 2025-10-09 14:50:01
+ 6 files changed, 108 insertions(+), 6 deletions(-)
+ create mode 100644 scenes/settings.gd
+ create mode 100644 scenes/settings.gd.uid
+ create mode 100644 scenes/settings.tscn
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/SalaCodes/PARRIED
+   e790e9b..b176f4a  hallo -> hallo
+✅ Backup successful at 14:50:02
+============================
+============================
+Backup started: 2025-10-09 15:00:01

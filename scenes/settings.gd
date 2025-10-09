@@ -1,17 +1,26 @@
 extends Control
 
-var showCredits = Settings.showcredits
-var 
+var showcredits = Settings.showcredits
+var showparticles = Settings.particles
+
+@onready var credits: CheckBox = $HBoxContainer/VBoxContainer/credits
+@onready var particles: CheckBox = $HBoxContainer/VBoxContainer/particles
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# INITIALIZE BUTTONS
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# CHANGE IN SCRIPT VALUE
+	showcredits = credits.button_pressed
+	showparticles = particles.button_pressed
+	
+	
+	# CHANGE GLOBAL VALUE
+	Settings.showcredits = showcredits
+	Settings.particles = showparticles
 
 
 func _on_go_away_pressed() -> void:
