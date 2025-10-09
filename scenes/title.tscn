@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://m65onixhj0oc"]
+[gd_scene load_steps=30 format=3 uid="uid://m65onixhj0oc"]
 
 [ext_resource type="Script" uid="uid://clnsmm7ldp5vp" path="res://title.gd" id="1_b3w7a"]
 [ext_resource type="Texture2D" uid="uid://dcly61e5wnfed" path="res://assets/menu.png" id="2_4rr2b"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://diumq7dpknxnd" path="res://buttons/play-normal.png" id="10_ygloa"]
 [ext_resource type="Texture2D" uid="uid://nu0bdkh3dllk" path="res://buttons/play-hover.png" id="11_6civk"]
 [ext_resource type="Texture2D" uid="uid://m0qw2vcic70w" path="res://buttons/quit-hover.png" id="11_81wt4"]
+[ext_resource type="Texture2D" uid="uid://dnvjn0h7gpic7" path="res://buttons/settings-normal.png" id="15_ah8jo"]
+[ext_resource type="Texture2D" uid="uid://dtj4j2trv3j2w" path="res://buttons/settings-focused.png" id="16_blk4q"]
 
 [sub_resource type="Animation" id="Animation_k0juu"]
 length = 0.001
@@ -301,7 +303,7 @@ texture_hover = ExtResource("11_81wt4")
 texture_focused = ExtResource("11_81wt4")
 stretch_mode = 5
 
-[node name="pay" type="TextureButton" parent="."]
+[node name="play" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 475.0
 offset_top = 338.0
@@ -312,6 +314,18 @@ texture_normal = ExtResource("10_ygloa")
 texture_hover = ExtResource("11_6civk")
 texture_focused = ExtResource("11_6civk")
 
+[node name="settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 566.0
+offset_right = 659.0
+offset_bottom = 634.0
+texture_normal = ExtResource("15_ah8jo")
+texture_hover = ExtResource("16_blk4q")
+texture_disabled = ExtResource("8_ah8jo")
+texture_focused = ExtResource("16_blk4q")
+stretch_mode = 4
+
 [node name="shield" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.235294)
 position = Vector2(-143, 327)
@@ -321,4 +335,5 @@ texture = ExtResource("8_ia1n6")
 [connection signal="pressed" from="demain" to="." method="_on_demain_pressed"]
 [connection signal="pressed" from="casino-button" to="." method="_on_casinobutton_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="pay" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]

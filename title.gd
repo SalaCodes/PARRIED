@@ -32,10 +32,16 @@ func _on_demain_pressed() -> void:
 	get_tree().change_scene_to_file("res://demain/demainsthrone.tscn")
 
 
-func _on_texture_button_pressed() -> void:
-	if !quitting:
-		get_tree().change_scene_to_file("res://submenus/submenu_playmenu.tscn")
 
 
 func _on_casinobutton_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/casino.tscn")
+
+
+func _on_play_pressed() -> void:
+	if !quitting:
+		get_tree().change_scene_to_file("res://submenus/submenu_playmenu.tscn")
+
+
+func _on_settings_pressed() -> void:
+	pass # Replace with function body.
