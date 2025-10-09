@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bv2wowdovf3o"]
+[gd_scene load_steps=41 format=3 uid="uid://bv2wowdovf3o"]
 
 [ext_resource type="Script" uid="uid://bkw17iiipysyq" path="res://scenes/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_f3sb7"]
@@ -574,6 +574,14 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_4mrxx"]
 radius = 352.751
 
+[sub_resource type="Animation" id="Animation_dss4m"]
+resource_name = "sin"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7t5mc"]
+_data = {
+&"sin": SubResource("Animation_dss4m")
+}
+
 [node name="world" type="Node2D" groups=["game"]]
 script = ExtResource("1_4wyf3")
 
@@ -833,6 +841,11 @@ text = "NO UPGRADES"
 
 [node name="player" parent="." instance=ExtResource("1_f3sb7")]
 position = Vector2(551, 300)
+
+[node name="sin" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7t5mc")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="forplayanimation/skip" to="." method="_on_skip_pressed"]

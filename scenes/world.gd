@@ -9,7 +9,7 @@ var looker = preload("res://bullettypes/looker.tscn")
 
 @onready var bulletspawns: Node2D = $bulletspawns
 @onready var timer: Timer = $Timer
-@onready var player: CharacterBody2D = $player
+@onready var player: Player = $player
 @onready var credits: Label = $CREDITS
 
 const idk = preload("res://music/Sebastian -vey- Fennec & Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION.mp3")
@@ -26,10 +26,12 @@ var animation = true
 var lookerexists = false
 var lookerNode
 
+var base_disadvantagemilestone = 50
+var disadvantagemilestone = base_disadvantagemilestone
+
 
 
 func _ready() -> void:
-	
 	if Sounds.music.stream != idk:
 		Sounds.uncalm_music()
 		play_animation()
@@ -54,6 +56,11 @@ func _process(delta: float) -> void:
 	if !Input.get_connected_joypads().is_empty():
 		if Input.is_action_just_pressed("parry") and animation:
 			_on_skip_pressed()
+	if disadvantagemilestone == player.parries:
+		disadvantagemilestone *= 2
+		timer.paused = true
+		
+
 
 
 func _on_timer_timeout() -> void:
