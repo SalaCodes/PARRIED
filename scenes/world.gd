@@ -7,7 +7,6 @@ var upgrader = preload("res://bullettypes/upgrader.tscn")
 var looker = preload("res://bullettypes/looker.tscn")
 
 
-
 @onready var bulletspawns: Node2D = $bulletspawns
 @onready var timer: Timer = $Timer
 @onready var player: CharacterBody2D = $player
@@ -26,6 +25,8 @@ var animation = true
 
 var lookerexists = false
 var lookerNode
+
+
 
 func _ready() -> void:
 	

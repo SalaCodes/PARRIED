@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bv2wowdovf3o"]
+[gd_scene load_steps=39 format=3 uid="uid://bv2wowdovf3o"]
 
 [ext_resource type="Script" uid="uid://bkw17iiipysyq" path="res://scenes/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_f3sb7"]
@@ -10,7 +10,6 @@
 [ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="5_dss4m"]
 [ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="6_i7141"]
 [ext_resource type="Resource" uid="uid://05pkgyprt1x7" path="res://upgrade/upgrades/giveparriesfordmg.tres" id="7_4mrxx"]
-[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/more_bullets.tres" id="8_4mrxx"]
 [ext_resource type="Resource" uid="uid://dlaivi1x1jqx4" path="res://upgrade/upgrades/healchance.tres" id="9_7r4gi"]
 [ext_resource type="Resource" uid="uid://5x7jpfi8n13f" path="res://upgrade/upgrades/doubletrouble.tres" id="10_w7kh3"]
 [ext_resource type="Resource" uid="uid://dbetnuf0iobo6" path="res://upgrade/upgrades/prayedfast.tres" id="11_e3hyu"]
@@ -797,7 +796,7 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 z_index = 2
 script = ExtResource("5_71j4m")
-upgrades = Array[ExtResource("6_i7141")]([ExtResource("7_4mrxx"), ExtResource("8_4mrxx"), ExtResource("9_7r4gi"), ExtResource("10_w7kh3"), ExtResource("11_e3hyu"), ExtResource("13_jhx03"), ExtResource("14_o8fc1"), ExtResource("15_xo05s")])
+upgrades = Array[ExtResource("6_i7141")]([ExtResource("7_4mrxx"), ExtResource("9_7r4gi"), ExtResource("10_w7kh3"), ExtResource("11_e3hyu"), ExtResource("13_jhx03"), ExtResource("14_o8fc1"), ExtResource("15_xo05s")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="upgrades"]
 libraries = {

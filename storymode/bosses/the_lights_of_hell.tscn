@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bw7diywdpupwa"]
+[gd_scene load_steps=24 format=3 uid="uid://bw7diywdpupwa"]
 
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_4c3rm"]
 [ext_resource type="Script" uid="uid://bjr2ipfgednri" path="res://storymode/bosses/the_lights_of_hell.gd" id="1_w4it6"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dbhbjpkqalqmk" path="res://scenes/upgrades.gd" id="4_xwxy2"]
 [ext_resource type="Script" uid="uid://bvw4bt33f5yg4" path="res://upgrade/upgrade.gd" id="5_j375m"]
 [ext_resource type="Resource" uid="uid://05pkgyprt1x7" path="res://upgrade/upgrades/giveparriesfordmg.tres" id="6_iper8"]
-[ext_resource type="Resource" uid="uid://bfxnc0yvegch6" path="res://upgrade/upgrades/more_bullets.tres" id="7_uuq1w"]
 [ext_resource type="Resource" uid="uid://dlaivi1x1jqx4" path="res://upgrade/upgrades/healchance.tres" id="8_l3lqn"]
 [ext_resource type="Resource" uid="uid://5x7jpfi8n13f" path="res://upgrade/upgrades/doubletrouble.tres" id="9_kh0ji"]
 [ext_resource type="Resource" uid="uid://dbetnuf0iobo6" path="res://upgrade/upgrades/prayedfast.tres" id="10_727vf"]
@@ -224,7 +223,7 @@ autoplay = "moving"
 process_mode = 3
 z_index = 2
 script = ExtResource("4_xwxy2")
-upgrades = Array[ExtResource("5_j375m")]([ExtResource("6_iper8"), ExtResource("7_uuq1w"), ExtResource("8_l3lqn"), ExtResource("9_kh0ji"), ExtResource("10_727vf"), ExtResource("11_3y7ua"), ExtResource("12_cwgqf"), ExtResource("13_3cqyo")])
+upgrades = Array[ExtResource("5_j375m")]([ExtResource("6_iper8"), ExtResource("8_l3lqn"), ExtResource("9_kh0ji"), ExtResource("10_727vf"), ExtResource("11_3y7ua"), ExtResource("12_cwgqf"), ExtResource("13_3cqyo")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="upgrades"]
 libraries = {
