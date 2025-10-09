@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dglblajrpo7rk"]
+[gd_scene load_steps=9 format=3 uid="uid://dglblajrpo7rk"]
 
 [ext_resource type="Texture2D" uid="uid://cab0a3va05pu3" path="res://demain/wall.png" id="1_34vql"]
 [ext_resource type="Script" uid="uid://irijm7amkehm" path="res://demain/demainsthrone.gd" id="1_khif0"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bv00kr4arethq" path="res://sounds/talk_demain.wav" id="5_i6f4b"]
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="6_fxux5"]
 [ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="7_bmqbj"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="8_bmqbj"]
 
 [node name="demainsthrone" type="Node2D"]
 script = ExtResource("1_khif0")
@@ -55,6 +56,7 @@ offset_bottom = 46.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("6_fxux5")
 texture_hover = ExtResource("7_bmqbj")
+texture_disabled = ExtResource("8_bmqbj")
 texture_focused = ExtResource("7_bmqbj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

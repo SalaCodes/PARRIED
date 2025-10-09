@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c55msuqcgcm6b"]
+[gd_scene load_steps=32 format=3 uid="uid://c55msuqcgcm6b"]
 
 [ext_resource type="Script" uid="uid://5owcl5s1sihf" path="res://scenes/casino.gd" id="1_yq41b"]
 [ext_resource type="Texture2D" uid="uid://wrcvnn6tmwmq" path="res://assets/dealer.png" id="2_af3b0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="5_lqqel"]
 [ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="6_1y6yl"]
 [ext_resource type="AudioStream" uid="uid://da5w6c2ojnlu0" path="res://music/Lightless Dawn.mp3" id="6_vhbw6"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="6_xy2ko"]
 [ext_resource type="AudioStream" uid="uid://67spxvb2odwq" path="res://sounds/talk_dealer.wav" id="7_a0uha"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="9_qcp6i"]
 [ext_resource type="Texture2D" uid="uid://crtxdhdcf8dwi" path="res://assets/soul-sheet.png" id="10_kdxhv"]
@@ -332,7 +333,7 @@ offset_top = 428.0
 offset_right = 709.0
 offset_bottom = 635.0
 theme_override_fonts/normal_font = ExtResource("9_qcp6i")
-text = "asssssssssssssssss"
+text = "hello....."
 horizontal_alignment = 1
 
 [node name="gamble" type="TextureButton" parent="."]
@@ -343,6 +344,7 @@ offset_right = 453.0
 offset_bottom = 419.0
 texture_normal = ExtResource("2_ftwen")
 texture_hover = ExtResource("3_k77mw")
+texture_disabled = ExtResource("6_xy2ko")
 texture_focused = ExtResource("3_k77mw")
 stretch_mode = 4
 
@@ -369,6 +371,7 @@ offset_right = 233.0
 offset_bottom = 105.0
 texture_normal = ExtResource("5_lqqel")
 texture_hover = ExtResource("6_1y6yl")
+texture_disabled = ExtResource("6_xy2ko")
 texture_focused = ExtResource("6_1y6yl")
 stretch_mode = 4
 

@@ -50,6 +50,7 @@ func _process(delta: float) -> void:
 
 
 func _on_gamble_pressed() -> void:
+	get_viewport().gui_release_focus()
 	if SoulsHandler.souls >= 50:
 		gamble.disabled = true
 		go_away.disabled = true

@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://clnsmm7ldp5vp" path="res://title.gd" id="1_b3w7a"]
 [ext_resource type="Texture2D" uid="uid://dcly61e5wnfed" path="res://assets/menu.png" id="2_4rr2b"]
 [ext_resource type="Texture2D" uid="uid://b8v8v2y574w3i" path="res://assets/background-dealer.png" id="2_hiwto"]
-[ext_resource type="Texture2D" uid="uid://cc1khs0yc68ur" path="res://assets/button.png" id="4_ia1n6"]
-[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="5_yql1r"]
 [ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="6_4rr2b"]
+[ext_resource type="Texture2D" uid="uid://daaia77nt3s04" path="res://buttons/throne-normal.png" id="6_kcc3o"]
 [ext_resource type="Texture2D" uid="uid://by457t2mpbl3g" path="res://SPLASH/logo.png" id="6_yql1r"]
+[ext_resource type="Texture2D" uid="uid://crhablo28x0r1" path="res://buttons/throne-hover.png" id="7_6rcc6"]
 [ext_resource type="Texture2D" uid="uid://dxn0tucvn13n0" path="res://buttons/casino-normal.png" id="8_81wt4"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="8_ah8jo"]
 [ext_resource type="Texture2D" uid="uid://bis2y5w4blnfb" path="res://assets/shield(parry).png" id="8_ia1n6"]
 [ext_resource type="Texture2D" uid="uid://c5wl2j75s3w8p" path="res://buttons/casino-hover.png" id="9_kcc3o"]
 [ext_resource type="Texture2D" uid="uid://ihrijvwcuwlq" path="res://buttons/quit-normal.png" id="10_7af2g"]
@@ -195,8 +196,6 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hiwto"]
-
 [node name="title" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -265,19 +264,17 @@ scale = Vector2(5, 5)
 theme = ExtResource("6_4rr2b")
 text = "Sebastian -vey- Fennec - ROBLOX Grace Original Soundtrack (from The Garden) - 01 -BONUS- ...Let us Pray."
 
-[node name="demain" type="Button" parent="."]
+[node name="demain" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 886.0
-offset_top = 514.0
-offset_right = 1022.0
-offset_bottom = 554.0
-scale = Vector2(1.49722, 2.03171)
-theme_override_fonts/font = ExtResource("5_yql1r")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hiwto")
-text = "THRONE"
-icon = ExtResource("4_ia1n6")
-flat = true
-icon_alignment = 1
+offset_left = 903.0
+offset_top = 535.0
+offset_right = 1126.0
+offset_bottom = 625.0
+texture_normal = ExtResource("6_kcc3o")
+texture_hover = ExtResource("7_6rcc6")
+texture_disabled = ExtResource("8_ah8jo")
+texture_focused = ExtResource("7_6rcc6")
+stretch_mode = 4
 
 [node name="casino-button" type="TextureButton" parent="."]
 layout_mode = 0

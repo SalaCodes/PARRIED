@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2msvos3lli68"]
+[gd_scene load_steps=8 format=3 uid="uid://2msvos3lli68"]
 
 [ext_resource type="Script" uid="uid://bdm17tuojl2kl" path="res://storymode/story_mode_chooser.gd" id="1_r3q3y"]
 [ext_resource type="Texture2D" uid="uid://c4s5625jb1pn8" path="res://storymode/bossesicon/TLOF.png" id="1_w2riu"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_syy18"]
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="4_dmmui"]
 [ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="5_vt2aj"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="7_3yhsc"]
 
 [node name="StoryModeChooser" type="Control"]
 layout_mode = 3
@@ -76,6 +77,7 @@ offset_bottom = 585.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("4_dmmui")
 texture_hover = ExtResource("5_vt2aj")
+texture_disabled = ExtResource("7_3yhsc")
 texture_focused = ExtResource("5_vt2aj")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TLOF" to="." method="_on_tlof_pressed"]

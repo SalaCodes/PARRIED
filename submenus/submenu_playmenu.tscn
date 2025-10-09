@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://duke754uejv31"]
+[gd_scene load_steps=13 format=3 uid="uid://duke754uejv31"]
 
 [ext_resource type="Script" uid="uid://hwgrt7armqux" path="res://submenus/submenu_playmenu.gd" id="1_peucw"]
 [ext_resource type="Texture2D" uid="uid://b8v8v2y574w3i" path="res://assets/background-dealer.png" id="2_vqhpy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dmud705ijqehg" path="res://assets/icon.png" id="5_bspxi"]
 [ext_resource type="Texture2D" uid="uid://x8fadyorpkqw" path="res://buttons/bosses-normal.png" id="5_e7xsi"]
 [ext_resource type="Texture2D" uid="uid://ldfuybm0x2a1" path="res://buttons/bosses-hover.png" id="6_gab71"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="6_mhcj4"]
 [ext_resource type="Texture2D" uid="uid://mie7ebkqsiix" path="res://buttons/book-normal.png" id="7_mlnmf"]
 [ext_resource type="Texture2D" uid="uid://bfkhblg4nebv4" path="res://buttons/book-hover.png" id="8_adyrf"]
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="10_6i546"]
@@ -110,6 +111,7 @@ offset_bottom = 185.00002
 scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("3_mlnmf")
 texture_hover = ExtResource("4_adyrf")
+texture_disabled = ExtResource("6_mhcj4")
 texture_focused = ExtResource("4_adyrf")
 
 [node name="bosses" type="TextureButton" parent="."]
@@ -121,6 +123,7 @@ offset_bottom = 194.00002
 scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("5_e7xsi")
 texture_hover = ExtResource("6_gab71")
+texture_disabled = ExtResource("6_mhcj4")
 texture_focused = ExtResource("6_gab71")
 
 [node name="go_to_book" type="TextureButton" parent="."]
@@ -132,6 +135,7 @@ offset_bottom = 551.00006
 scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("7_mlnmf")
 texture_hover = ExtResource("8_adyrf")
+texture_disabled = ExtResource("6_mhcj4")
 texture_focused = ExtResource("8_adyrf")
 
 [node name="go away" type="TextureButton" parent="."]
@@ -143,6 +147,7 @@ offset_bottom = 43.0
 scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("10_6i546")
 texture_hover = ExtResource("11_mhcj4")
+texture_disabled = ExtResource("6_mhcj4")
 texture_focused = ExtResource("11_mhcj4")
 
 [connection signal="pressed" from="endless" to="." method="_on_endless_pressed"]
