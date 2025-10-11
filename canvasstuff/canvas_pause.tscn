@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://clu10t8lvdn2g"]
+[gd_scene load_steps=9 format=3 uid="uid://clu10t8lvdn2g"]
 
 [ext_resource type="Script" uid="uid://diiyu53vegtxm" path="res://scenes/canvas_layer.gd" id="1_id2xa"]
 [ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="2_drhyn"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_5e5f6"]
+[ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="4_7ei33"]
+[ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="5_klqgi"]
+[ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="6_a6mkf"]
+[ext_resource type="Texture2D" uid="uid://ihrijvwcuwlq" path="res://buttons/quit-normal.png" id="7_hyy4j"]
+[ext_resource type="Texture2D" uid="uid://m0qw2vcic70w" path="res://buttons/quit-hover.png" id="8_l3mka"]
 
 [node name="CanvasPause" type="CanvasLayer"]
 process_mode = 3
@@ -48,17 +53,25 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "CONTINUE"
 
-[node name="go_back" type="Button" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
+[node name="go_back" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
 process_mode = 3
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
-text = "GO TO TITLE"
+texture_normal = ExtResource("4_7ei33")
+texture_hover = ExtResource("5_klqgi")
+texture_disabled = ExtResource("6_a6mkf")
+texture_focused = ExtResource("5_klqgi")
+stretch_mode = 4
 
-[node name="quit" type="Button" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
+[node name="quit" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
 process_mode = 3
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
-text = "QUIT"
+texture_normal = ExtResource("7_hyy4j")
+texture_hover = ExtResource("8_l3mka")
+texture_disabled = ExtResource("6_a6mkf")
+texture_focused = ExtResource("8_l3mka")
+stretch_mode = 4
 
 [connection signal="pressed" from="PAUSE MENU/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PAUSE MENU/HBoxContainer/VBoxContainer/go_back" to="." method="_on_go_back_pressed"]
