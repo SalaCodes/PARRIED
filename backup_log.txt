@@ -1479,3 +1479,13 @@ To https://github.com/SalaCodes/PARRIED
 ============================
 ============================
 Backup started: 2025-10-11 17:40:01
+[hallo 530bad8] Auto-backup: 2025-10-11 17:40:01
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/SalaCodes/PARRIED
+   6a12189..530bad8  hallo -> hallo
+✅ Backup successful at 17:40:02
+============================
+============================
+Backup started: 2025-10-11 17:50:01
