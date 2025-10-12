@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dglblajrpo7rk"]
 
-[ext_resource type="Texture2D" uid="uid://cab0a3va05pu3" path="res://demain/wall.png" id="1_34vql"]
 [ext_resource type="Script" uid="uid://irijm7amkehm" path="res://demain/demainsthrone.gd" id="1_khif0"]
+[ext_resource type="Texture2D" uid="uid://brb4jqo61extu" path="res://demain/background.png" id="2_bmqbj"]
 [ext_resource type="Texture2D" uid="uid://ddt6qhdnjv3ou" path="res://demain/demain.png" id="2_p3oee"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_p3oee"]
 [ext_resource type="AudioStream" uid="uid://bv00kr4arethq" path="res://sounds/talk_demain.wav" id="5_i6f4b"]
@@ -12,29 +12,21 @@
 [node name="demainsthrone" type="Node2D"]
 script = ExtResource("1_khif0")
 
-[node name="bg" type="ColorRect" parent="."]
-offset_left = -83.0
-offset_top = -60.0
-offset_right = 1189.0
-offset_bottom = 754.0
-color = Color(0.533325, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(529, 320)
+scale = Vector2(2, 2.05625)
+texture = ExtResource("2_bmqbj")
 
 [node name="demain" type="Sprite2D" parent="."]
-position = Vector2(558, 247)
+position = Vector2(558, 447)
 scale = Vector2(2, 2)
 texture = ExtResource("2_p3oee")
 
-[node name="Wall" type="Sprite2D" parent="."]
-position = Vector2(589, 473.5)
-scale = Vector2(2.515625, 1.5)
-texture = ExtResource("1_34vql")
-
 [node name="demainspeech" type="RichTextLabel" parent="."]
-offset_left = 28.0
-offset_top = 498.0
-offset_right = 1125.0
-offset_bottom = 641.0
+offset_left = 22.0
+offset_top = 123.0
+offset_right = 1119.0
+offset_bottom = 210.0
 theme_override_fonts/normal_font = ExtResource("3_p3oee")
 bbcode_enabled = true
 text = "hello.... pathetic citizen"
