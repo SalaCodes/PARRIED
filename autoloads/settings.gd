@@ -3,6 +3,7 @@ extends Node
 
 var showcredits = true
 var particles = true
+var showfps = false
 
 
 func _ready() -> void:
@@ -10,6 +11,7 @@ func _ready() -> void:
 		var data = SoulsHandler.load_data()
 		showcredits = data.get("showcredits", true)
 		particles = data.get("particles", true)
+		showfps = data.get("showfps", false)
 
 
 func _process(delta: float) -> void:
@@ -17,6 +19,7 @@ func _process(delta: float) -> void:
 	var data = {
 		"showcredits": showcredits,
 		"particles": particles,
+		"showfps": showfps,
 	}
 	
 	

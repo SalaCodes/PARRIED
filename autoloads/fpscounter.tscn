@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmml5t0uexkfe"]
+
+[ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="1_je0fi"]
+
+[node name="fpscounter" type="CanvasLayer"]
+layer = 1000
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 125.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("1_je0fi")
+theme_override_font_sizes/font_size = 28
+text = "FPS: "

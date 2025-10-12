@@ -21,7 +21,6 @@ class_name Player
 @onready var death_particles: GPUParticles2D = $death_particles
 @onready var hplabelthing: Label = $hplabelthing
 @onready var heal_animation: AnimationPlayer = $heal
-@onready var death: AnimatedSprite2D = %death
 
 
 #animated players onready variables skins
@@ -157,7 +156,6 @@ func _process(delta: float) -> void:
 			candash = true
 	
 	character_skin(Characters.chosen_character["skin"])
-	death.play(str(health_animation))
 	
 	if health == 1:
 		health_animation = 5

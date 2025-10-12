@@ -31,6 +31,7 @@ GlobalSignals="*res://autoloads/global_signals.gd"
 Settings="*res://autoloads/settings.gd"
 Characters="*res://autoloads/characters.gd"
 Cursor="*res://autoloads/cursor.tscn"
+Fpscounter="*res://autoloads/fpscounter.tscn"
 
 [debug]
 
