@@ -577,7 +577,7 @@ radius = 352.751
 
 [sub_resource type="Animation" id="Animation_dss4m"]
 resource_name = "sin"
-length = 5.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -585,10 +585,10 @@ tracks/0/path = NodePath("sin-cards/sin:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3.77, 3.8, 3.8348422, 3.8666666, 3.9015088, 3.9333334, 3.9681756, 4, 4.0348425),
-"transitions": PackedFloat32Array(0.48296827, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.5, 3.77, 3.8, 3.8348422, 3.8666666, 3.9015088, 3.9333334, 3.9681756, 4, 4.0348425, 4.0666666, 4.101509, 4.133333, 4.1681757, 4.2, 4.2348423, 4.2666664, 4.301509, 4.3333335, 4.3681755, 4.4, 4.434842, 4.466667, 4.501509, 4.533334, 4.5681763, 4.6, 4.634842, 4.6666665, 4.7015085, 4.7333336, 4.7681756, 4.8, 4.8348427, 4.866667, 4.899999, 4.9318237, 4.9666657, 4.998491, 5.033333, 5.0651574, 5.1, 5.131824, 5.166666, 5.198491, 5.233333, 5.2651577, 5.3, 5.3333335, 5.3681755, 5.4000006, 5.4348426, 5.466667, 5.5015097, 6),
+"transitions": PackedFloat32Array(0.48296827, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.48296827),
 "update": 0,
-"values": [Vector2(459, 0), Vector2(459, -500), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500)]
+"values": [Vector2(459, 0), Vector2(459, -500), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(460, -501), Vector2(458, -497), Vector2(460, -501), Vector2(455, -493), Vector2(460, -501), Vector2(459, -500), Vector2(459, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -909,7 +909,7 @@ position = Vector2(0, 722)
 [node name="sin" parent="sin-cards" instance=ExtResource("17_7t5mc")]
 offset_left = 459.0
 offset_top = 0.0
-offset_right = 674.0
+offset_right = 674.0005
 offset_bottom = 259.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

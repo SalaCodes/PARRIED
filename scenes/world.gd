@@ -11,6 +11,7 @@ var looker = preload("res://bullettypes/looker.tscn")
 @onready var timer: Timer = $Timer
 @onready var player: Player = $player
 @onready var credits: Label = $CREDITS
+@onready var sin: AnimationPlayer = $sin
 
 const idk = preload("res://music/Sebastian -vey- Fennec & Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION.mp3")
 
@@ -60,6 +61,14 @@ func _process(delta: float) -> void:
 	if disadvantagemilestone == player.parries:
 		disadvantagemilestone *= 2
 		timer.paused = true
+		player.start = false
+		player.SPEED = 0
+		sin.play("sin")
+		await sin.animation_finished
+		bulletamount *= 2
+		timer.paused = false
+		player.start = true
+		player.SPEED = Characters.chosen_character["speed"]
 		
 
 
@@ -131,8 +140,8 @@ func _on_skip_pressed() -> void:
 		$forplayanimation.queue_free()
 		
 		
-		$player.SPEED = Characters.chosen_character["speed"]
-		$player.start = true
+		player.SPEED = Characters.chosen_character["speed"]
+		player.start = true
 		
 		
 		
