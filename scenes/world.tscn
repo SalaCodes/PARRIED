@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bv2wowdovf3o"]
+[gd_scene load_steps=43 format=3 uid="uid://bv2wowdovf3o"]
 
 [ext_resource type="Script" uid="uid://bkw17iiipysyq" path="res://scenes/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://dvbridqnq17o6" path="res://scenes/player.tscn" id="1_f3sb7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://cwtltfv5c3vhs" path="res://upgrade/upgrades/dash.tres" id="13_jhx03"]
 [ext_resource type="Resource" uid="uid://cjxxr2tms64gc" path="res://upgrade/upgrades/healing.tres" id="14_o8fc1"]
 [ext_resource type="Resource" uid="uid://38b3skatoki3" path="res://upgrade/upgrades/nospeed.tres" id="15_xo05s"]
+[ext_resource type="PackedScene" uid="uid://ism4tsbt8561" path="res://sin-cards/sin.tscn" id="17_7t5mc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71j4m"]
 atlas = ExtResource("4_k0juu")
@@ -576,9 +577,62 @@ radius = 352.751
 
 [sub_resource type="Animation" id="Animation_dss4m"]
 resource_name = "sin"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sin-cards/sin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.48296827, 1),
+"update": 0,
+"values": [Vector2(459, 0), Vector2(459, -500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sin-cards/sin:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 40), Vector2(5, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_7t5mc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sin-cards/sin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(459, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sin-cards/sin:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 40)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7t5mc"]
 _data = {
+&"RESET": SubResource("Animation_7t5mc"),
 &"sin": SubResource("Animation_dss4m")
 }
 
@@ -588,6 +642,7 @@ script = ExtResource("1_4wyf3")
 [node name="canvasDebug" parent="." instance=ExtResource("2_lakw3")]
 
 [node name="CanvasPause" parent="." instance=ExtResource("3_7t5mc")]
+visible = false
 
 [node name="playerspawn" type="Marker2D" parent="."]
 position = Vector2(551, 300)
@@ -847,6 +902,14 @@ position = Vector2(551, 300)
 libraries = {
 &"": SubResource("AnimationLibrary_7t5mc")
 }
+
+[node name="sin-cards" type="Node2D" parent="."]
+position = Vector2(0, 722)
+
+[node name="sin" parent="sin-cards" instance=ExtResource("17_7t5mc")]
+offset_left = 459.0
+offset_right = 499.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="forplayanimation/skip" to="." method="_on_skip_pressed"]

@@ -8,10 +8,10 @@ layer = 1000
 script = ExtResource("1_22xse")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 12.0
-offset_top = 601.0
-offset_right = 83.0
-offset_bottom = 636.0
+offset_left = 7.0
+offset_top = 560.0
+offset_right = 78.0
+offset_bottom = 595.0
 theme_override_fonts/font = ExtResource("1_je0fi")
 theme_override_font_sizes/font_size = 20
 text = "FPS: "
