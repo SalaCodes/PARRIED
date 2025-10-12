@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://dvbridqnq17o6"]
+[gd_scene load_steps=85 format=3 uid="uid://dvbridqnq17o6"]
 
 [ext_resource type="Script" uid="uid://6vvsts2l8rfn" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://b5euh2gj7gimq" path="res://character-assets/player-sheet.png" id="2_ur7pv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://s5ttupy5w3iw" path="res://assets/upgrade.png" id="6_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://hgksp4sai7r1" path="res://assets/dash.png" id="7_fjrip"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="12_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cxdtkhb8qeo07" path="res://character-assets/death/death.png" id="14_f1ej7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
 atlas = ExtResource("2_ur7pv")
@@ -807,6 +808,74 @@ _data = {
 &"lookerishere": SubResource("Animation_jej6c")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy8y"]
+atlas = ExtResource("14_f1ej7")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdfoy"]
+atlas = ExtResource("14_f1ej7")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("14_f1ej7")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5jhy"]
+atlas = ExtResource("14_f1ej7")
+region = Rect2(3456, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_holxr"]
+atlas = ExtResource("14_f1ej7")
+region = Rect2(4608, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mx1m4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giy8y")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdfoy")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpqf")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5jhy")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_holxr")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3v2ag"]
 lifetime_randomness = 0.8
 particle_flag_disable_z = true
@@ -1077,6 +1146,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_f1ej7")
 }
 autoplay = "RESET"
+
+[node name="death" type="AnimatedSprite2D" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_mx1m4")
+animation = &"0"
+autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
