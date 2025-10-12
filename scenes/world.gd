@@ -60,6 +60,9 @@ func _process(delta: float) -> void:
 	
 	if disadvantagemilestone == player.parries:
 		disadvantagemilestone *= 2
+		for child in get_children():
+			if child.is_in_group("b"):
+				child.queue_free()
 		timer.paused = true
 		player.start = false
 		player.SPEED = 0
