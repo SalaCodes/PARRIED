@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 	if !Input.get_connected_joypads().is_empty():
 		if Input.is_action_just_pressed("parry") and animation:
 			_on_skip_pressed()
+	
 	if disadvantagemilestone == player.parries:
 		disadvantagemilestone *= 2
 		timer.paused = true
