@@ -687,10 +687,10 @@ position = Vector2(-37, 445)
 position = Vector2(-31, 509)
 
 [node name="bulletspawn47" type="Marker2D" parent="bulletspawns"]
-position = Vector2(-37, 603)
+position = Vector2(-53, 603)
 
 [node name="bulletspawn48" type="Marker2D" parent="bulletspawns"]
-position = Vector2(-18, 699)
+position = Vector2(-52, 701)
 
 [node name="bulletspawn49" type="Marker2D" parent="bulletspawns"]
 position = Vector2(29, 703)
@@ -761,6 +761,7 @@ scale = Vector2(5, 5)
 theme = ExtResource("5_dss4m")
 text = "Sebastian -vey- Fennec and Ezekiel II - ROBLOX Grace Original Soundtrack (from The Garden) - 08 RETALIATION"
 vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="credits" type="AnimationPlayer" parent="."]
 libraries = {
