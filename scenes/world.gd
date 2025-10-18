@@ -27,7 +27,7 @@ var animation = true
 var lookerexists = false
 var lookerNode
 
-var base_disadvantagemilestone = 50
+var base_disadvantagemilestone = 100
 var disadvantagemilestone = base_disadvantagemilestone
 
 
