@@ -54,6 +54,7 @@ animations = [{
 
 [node name="cursor" type="CanvasLayer"]
 process_mode = 3
+layer = 99999999
 
 [node name="cursor" type="AnimatedSprite2D" parent="."]
 process_mode = 3
