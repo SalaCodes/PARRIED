@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://clu10t8lvdn2g"]
+[gd_scene load_steps=11 format=3 uid="uid://clu10t8lvdn2g"]
 
 [ext_resource type="Script" uid="uid://diiyu53vegtxm" path="res://scenes/canvas_layer.gd" id="1_id2xa"]
 [ext_resource type="Theme" uid="uid://djyaafmnlul2h" path="res://themes/font.tres" id="2_drhyn"]
 [ext_resource type="FontFile" uid="uid://hs8xiier5ank" path="res://fonts/Daydream DEMO.otf" id="3_5e5f6"]
 [ext_resource type="Texture2D" uid="uid://utqrdws52nql" path="res://buttons/back-normal.png" id="4_7ei33"]
+[ext_resource type="Texture2D" uid="uid://8tdjyhlf4u4h" path="res://buttons/continue-normal.png" id="4_a6mkf"]
+[ext_resource type="Texture2D" uid="uid://btxfwc0v046au" path="res://buttons/continue-hover.png" id="5_hyy4j"]
 [ext_resource type="Texture2D" uid="uid://crefafha34cpp" path="res://buttons/back-hover.png" id="5_klqgi"]
 [ext_resource type="Texture2D" uid="uid://ck0tyk42fo0hn" path="res://buttons/disabled.png" id="6_a6mkf"]
 [ext_resource type="Texture2D" uid="uid://ihrijvwcuwlq" path="res://buttons/quit-normal.png" id="7_hyy4j"]
@@ -47,11 +49,15 @@ theme_override_font_sizes/font_size = 35
 text = "PAUSED"
 horizontal_alignment = 1
 
-[node name="continue" type="Button" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
+[node name="continue" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
 process_mode = 3
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
-text = "CONTINUE"
+texture_normal = ExtResource("4_a6mkf")
+texture_hover = ExtResource("5_hyy4j")
+texture_disabled = ExtResource("6_a6mkf")
+texture_focused = ExtResource("5_hyy4j")
+stretch_mode = 5
 
 [node name="go_back" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
 process_mode = 3

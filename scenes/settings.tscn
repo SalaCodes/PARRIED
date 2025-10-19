@@ -24,6 +24,13 @@ offset_right = 1189.0
 offset_bottom = 754.0
 color = Color(0.384314, 0, 0, 1)
 
+[node name="bg2" type="ColorRect" parent="background"]
+offset_left = 457.0
+offset_top = -60.0
+offset_right = 801.0
+offset_bottom = 754.0
+color = Color(0.22897747, 1.2754649e-06, 6.617978e-07, 1)
+
 [node name="Background-dealer" type="Sprite2D" parent="background"]
 position = Vector2(578, 539)
 scale = Vector2(7.2804985, 2.092)
@@ -75,6 +82,15 @@ size_flags_vertical = 4
 layout_mode = 2
 theme_override_font_sizes/font_size = 21
 text = "SHOW CREDITS"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/credits"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 25.0
+offset_right = 254.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+text = "Includes in the title screen and endless mode"
 
 [node name="particles" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
