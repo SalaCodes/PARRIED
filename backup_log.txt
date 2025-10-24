@@ -3861,3 +3861,15 @@ To https://github.com/SalaCodes/PARRIED
 ============================
 ============================
 Backup started: 2025-10-24 14:30:01
+[hallo e609788] Auto-backup: 2025-10-24 14:30:02
+ 4 files changed, 51 insertions(+)
+ create mode 100644 character-assets/death/deathagain.png
+ create mode 100644 character-assets/death/deathagain.png.import
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+To https://github.com/SalaCodes/PARRIED
+   ef4cfda..e609788  hallo -> hallo
+✅ Backup successful at 14:30:03
+============================
+============================
+Backup started: 2025-10-24 14:40:01
