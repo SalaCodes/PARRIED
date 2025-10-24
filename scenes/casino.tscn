@@ -345,10 +345,10 @@ texture = ExtResource("2_af3b0")
 
 [node name="dealer_text" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 428.0
-offset_right = 709.0
-offset_bottom = 635.0
+offset_left = 234.0
+offset_top = 84.0
+offset_right = 1159.0
+offset_bottom = 291.0
 theme_override_fonts/normal_font = ExtResource("9_qcp6i")
 text = "hello....."
 horizontal_alignment = 1
