@@ -58,7 +58,8 @@ layer = 99999999
 
 [node name="cursor" type="AnimatedSprite2D" parent="."]
 process_mode = 3
-scale = Vector2(0.5, 0.5)
+rotation = 0.41887903
 sprite_frames = SubResource("SpriteFrames_fv6cy")
 autoplay = "default"
+offset = Vector2(4, 4)
 script = ExtResource("2_5i8rx")

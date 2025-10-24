@@ -53,6 +53,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_bspxi")
 
 [node name="left" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(569, 196)
 amount = 50
 lifetime = 0.7
@@ -70,6 +71,7 @@ scale_amount_max = 6.0
 color = Color(0.62557507, 1.4318898e-06, 5.7756904e-07, 1)
 
 [node name="right" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(569, 196)
 amount = 50
 lifetime = 0.7
@@ -87,6 +89,7 @@ scale_amount_max = 6.0
 color = Color(0.62557507, 1.4318898e-06, 5.7756904e-07, 1)
 
 [node name="down" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2(569, 196)
 amount = 100
 lifetime = 0.9
