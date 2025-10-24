@@ -808,6 +808,7 @@ position = Vector2(1219, 319)
 position = Vector2(1230, 417)
 
 [node name="CREDITS" type="Label" parent="."]
+visible = false
 offset_left = 502.0
 offset_top = 11.0
 offset_right = 2015.0
