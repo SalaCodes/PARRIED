@@ -56,7 +56,6 @@ layout_mode = 2
 texture_normal = ExtResource("4_a6mkf")
 texture_hover = ExtResource("5_hyy4j")
 texture_disabled = ExtResource("6_a6mkf")
-texture_focused = ExtResource("5_hyy4j")
 stretch_mode = 5
 
 [node name="go_back" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
@@ -66,7 +65,6 @@ layout_mode = 2
 texture_normal = ExtResource("4_7ei33")
 texture_hover = ExtResource("5_klqgi")
 texture_disabled = ExtResource("6_a6mkf")
-texture_focused = ExtResource("5_klqgi")
 stretch_mode = 4
 
 [node name="quit" type="TextureButton" parent="PAUSE MENU/HBoxContainer/VBoxContainer"]
@@ -76,7 +74,6 @@ layout_mode = 2
 texture_normal = ExtResource("7_hyy4j")
 texture_hover = ExtResource("8_l3mka")
 texture_disabled = ExtResource("6_a6mkf")
-texture_focused = ExtResource("8_l3mka")
 stretch_mode = 4
 
 [connection signal="pressed" from="PAUSE MENU/HBoxContainer/VBoxContainer/continue" to="." method="_on_continue_pressed"]

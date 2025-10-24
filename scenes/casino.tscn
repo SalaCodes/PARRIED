@@ -362,7 +362,6 @@ offset_bottom = 419.0
 texture_normal = ExtResource("2_ftwen")
 texture_hover = ExtResource("3_k77mw")
 texture_disabled = ExtResource("6_xy2ko")
-texture_focused = ExtResource("3_k77mw")
 stretch_mode = 4
 
 [node name="music" type="AudioStreamPlayer" parent="."]
@@ -389,7 +388,6 @@ offset_bottom = 105.0
 texture_normal = ExtResource("5_lqqel")
 texture_hover = ExtResource("6_1y6yl")
 texture_disabled = ExtResource("6_xy2ko")
-texture_focused = ExtResource("6_1y6yl")
 stretch_mode = 4
 
 [node name="souls_label" type="Label" parent="."]

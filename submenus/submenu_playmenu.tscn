@@ -112,7 +112,6 @@ scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("3_mlnmf")
 texture_hover = ExtResource("4_adyrf")
 texture_disabled = ExtResource("6_mhcj4")
-texture_focused = ExtResource("4_adyrf")
 
 [node name="bosses" type="TextureButton" parent="."]
 layout_mode = 0
@@ -124,7 +123,6 @@ scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("5_e7xsi")
 texture_hover = ExtResource("6_gab71")
 texture_disabled = ExtResource("6_mhcj4")
-texture_focused = ExtResource("6_gab71")
 
 [node name="go_to_book" type="TextureButton" parent="."]
 layout_mode = 0
@@ -136,7 +134,6 @@ scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("7_mlnmf")
 texture_hover = ExtResource("8_adyrf")
 texture_disabled = ExtResource("6_mhcj4")
-texture_focused = ExtResource("8_adyrf")
 
 [node name="go away" type="TextureButton" parent="."]
 layout_mode = 0
@@ -148,7 +145,6 @@ scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("10_6i546")
 texture_hover = ExtResource("11_mhcj4")
 texture_disabled = ExtResource("6_mhcj4")
-texture_focused = ExtResource("11_mhcj4")
 
 [connection signal="pressed" from="endless" to="." method="_on_endless_pressed"]
 [connection signal="pressed" from="bosses" to="." method="_on_bosses_pressed"]

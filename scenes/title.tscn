@@ -275,7 +275,6 @@ offset_bottom = 625.0
 texture_normal = ExtResource("6_kcc3o")
 texture_hover = ExtResource("7_6rcc6")
 texture_disabled = ExtResource("8_ah8jo")
-texture_focused = ExtResource("7_6rcc6")
 stretch_mode = 4
 
 [node name="casino-button" type="TextureButton" parent="."]
@@ -287,7 +286,7 @@ offset_bottom = 577.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("8_81wt4")
 texture_hover = ExtResource("9_kcc3o")
-texture_focused = ExtResource("9_kcc3o")
+texture_disabled = ExtResource("8_ah8jo")
 stretch_mode = 4
 
 [node name="quit_button" type="TextureButton" parent="."]
@@ -300,7 +299,7 @@ offset_bottom = 59.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("10_7af2g")
 texture_hover = ExtResource("11_81wt4")
-texture_focused = ExtResource("11_81wt4")
+texture_disabled = ExtResource("8_ah8jo")
 stretch_mode = 5
 
 [node name="play" type="TextureButton" parent="."]
@@ -312,7 +311,7 @@ offset_bottom = 370.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("10_ygloa")
 texture_hover = ExtResource("11_6civk")
-texture_focused = ExtResource("11_6civk")
+texture_disabled = ExtResource("8_ah8jo")
 
 [node name="settings" type="TextureButton" parent="."]
 layout_mode = 0
@@ -323,7 +322,6 @@ offset_bottom = 634.0
 texture_normal = ExtResource("15_ah8jo")
 texture_hover = ExtResource("16_blk4q")
 texture_disabled = ExtResource("8_ah8jo")
-texture_focused = ExtResource("16_blk4q")
 stretch_mode = 4
 
 [node name="shield" type="Sprite2D" parent="."]

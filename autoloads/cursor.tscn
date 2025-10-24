@@ -58,8 +58,7 @@ layer = 99999999
 
 [node name="cursor" type="AnimatedSprite2D" parent="."]
 process_mode = 3
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fv6cy")
-animation = &"shield_cursor"
 autoplay = "default"
-frame_progress = 0.9873686
 script = ExtResource("2_5i8rx")
